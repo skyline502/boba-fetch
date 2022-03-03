@@ -5,15 +5,21 @@ const csrf = require('csurf');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 
+//environment
 const { environment } = require('./config/index');
 const isProduction = environment === 'production';
 
+//routes
+const routes = require('./routes');
+
+//app
 const app = express();
 
 //middleware
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(express.json());//parsing json requests
+app.use(routes);
 
 //Security Middleware
 if (!isProduction) {
@@ -38,3 +44,9 @@ app.use(
     }
   })
 );
+
+
+
+
+//====================
+module.exports = app;
