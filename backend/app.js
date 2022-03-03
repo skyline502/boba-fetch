@@ -1,12 +1,12 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-const csrf = require('csurf');
+const csurf = require('csurf');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 
 //environment
-const { environment } = require('./config/index');
+const { environment } = require('./config');
 const isProduction = environment === 'production';
 
 //routes
@@ -19,7 +19,7 @@ const app = express();
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(express.json());//parsing json requests
-app.use(routes);
+
 
 //Security Middleware
 if (!isProduction) {
@@ -36,7 +36,7 @@ app.use(
 
 //Set the _csrf token and create req.csrfToken method
 app.use(
-  csrf({
+  csurf({
     cookie: {
       secure: isProduction,
       sameSite: isProduction && "Lax",
@@ -45,6 +45,8 @@ app.use(
   })
 );
 
+//routes
+app.use(routes); //has to be after all the middlewares
 
 
 
