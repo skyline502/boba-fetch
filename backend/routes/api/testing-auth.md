@@ -1,4 +1,8 @@
 # testing auth in api routes
+// const asyncHandler = require('express-async-handler');
+// const { setTokenCookie } = require('../../utils/auth');
+// const { User } = require('../../db/models');
+
 
 router.get('/set-token-cookie', asyncHandler(async(_req, res) => {
   const user = await User.findOne({
