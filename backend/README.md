@@ -74,12 +74,13 @@ JWT_EXPIRES_IN=604800
 ```
 Assign **PORT** to 5000, add a user password and a strong JWT secret.
 
-Recommendation to generate a strong secret: create a random string using openssl (a library that should already be installed in your Ubuntu/MacOS shell). Run openssl rand -base64 10 to generate a random JWT secret.
+Recommendation to generate a strong secret: create a random string using **openssl** (a library that should already be installed in your Ubuntu/MacOS shell). Run **openssl rand -base64 10** to generate a random JWT secret.
 
-Next, you will create a js configuration file that will read the environment variables loaded and export them.
+Next, you will create a **js** configuration file that will read the environment variables loaded and export them.
 
-Add a folder called config in your backend folder. Inside of the folder, create an index.js file with the following contents:
+Add a folder called **config** in your **backend** folder. Inside of the folder, create an **index.js** file with the following contents:
 
+```js
 // backend/config/index.js
 module.exports = {
   environment: process.env.NODE_ENV || 'development',
@@ -95,13 +96,15 @@ module.exports = {
     expiresIn: process.env.JWT_EXPIRES_IN
   }
 };
+```
 Each environment variable will be read and exported as a key from this file.
 
-Sequelize Setup
+## Sequelize Setup
 You will set up Sequelize to look in the backend/config/database.js file for its database configurations. You will also set up the backend/db folder to contain all the files for models, seeders, and migrations.
 
 To do this, create a .sequelizerc file in the backend folder with the following contents:
 
+```js
 // backend/.sequelizerc
 const path = require('path');
 
@@ -111,11 +114,16 @@ module.exports = {
   'seeders-path': path.resolve('db', 'seeders'),
   'migrations-path': path.resolve('db', 'migrations')
 };
+```
 Initialize Sequelize to the db folder by running:
 
+```js
 npx sequelize init
-Replace the contents of the newly created backend/config/database.js file with the following:
+```
 
+Replace the contents of the newly created **backend/config/database.js** file with the following:
+
+```js
 // backend/config/database.js
 const config = require('./index');
 
@@ -146,16 +154,24 @@ module.exports = {
     }
   }
 };
+```
+
 This will allow you to load the database configuration environment variables from the .env file into the config/index.js.
 
 Notice how the production database configuration has different keys than the development configuration? When you deploy your application to production, your database will be read from a URL path instead of a username, password, and database name combination.
 
 Next, create a user using the same credentials in the .env file with the ability to create databases.
 
+```js
 psql -c "CREATE USER <username> PASSWORD '<password>' CREATEDB"
+```
+
 Finally, create the database using sequelize-cli.
 
+```js
 npx dotenv sequelize db:create
+```
+
 Remember, any sequelize db: commands need to be prefixed with dotenv to load the database configuration environment variables from the .env file.
 
 Express Setup
