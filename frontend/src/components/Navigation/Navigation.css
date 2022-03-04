@@ -7,8 +7,7 @@
     align-items: center;
     height: 100px;
     border-bottom: 1px solid #382618;
-    margin: 0;
-    width: auto;
+    width: 100vw;
     background-color: whitesmoke;
 }
 

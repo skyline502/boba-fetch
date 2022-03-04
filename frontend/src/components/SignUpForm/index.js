@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from '../../store/session';
 import { Redirect } from 'react-router-dom';
+import './signupform.css';
 
 const SignUpForm = () => {
   const [username, setUsername] = useState('');
@@ -40,46 +41,49 @@ const SignUpForm = () => {
 
   return (
     <div className="sign-up-container">
-      <div>
-        <h1>Sign Up!</h1>
-      </div>
       <form onSubmit={onSubmit} className="sign-up-form">
+        <div className='header'>
+          <h1>Welcome to Boba Fetch!</h1>
+          <p>Sign up to continue</p>
+        </div>
         <ul>
           {validationErrors.map(error => <li key={error}>{error}</li>)}
         </ul>
-        <label htmlFor="username">Username: </label>
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-          required
-        />
-        <label htmlFor="email">Email: </label>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          required
-        />
-        <label htmlFor="password">Password: </label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          required
-        />
-        <label htmlFor='confirm-password'>Confirm Password: </label>
-        <input
-        type="password"
-        name="confirm-password"
-        value={confirmPassword}
-        onChange={e => setConfirmPassword(e.target.value)}
-        required
-        />
-        <button type="submit">Create User</button>
+        <div className='input-fields'>
+          <label htmlFor="username">Username: </label>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+            required
+          />
+          <label htmlFor="email">Email: </label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            required
+          />
+          <label htmlFor="password">Password: </label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            required
+          />
+          <label htmlFor='confirm-password'>Confirm Password: </label>
+          <input
+            type="password"
+            name="confirm-password"
+            value={confirmPassword}
+            onChange={e => setConfirmPassword(e.target.value)}
+            required
+          />
+          <button type="submit" className="create-user">Create User</button>
+        </div>
       </form>
     </div>
   )
