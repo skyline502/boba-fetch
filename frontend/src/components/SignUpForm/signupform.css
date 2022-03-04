@@ -23,6 +23,8 @@
 }
 
 input {
+  display: flex;
+  justify-content: center;
   width: 300px;
   border-radius: 5px;
   border: 1px whitesmoke;

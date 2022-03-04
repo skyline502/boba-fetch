@@ -47,7 +47,7 @@ const SignUpForm = () => {
           <p>Sign up to continue</p>
         </div>
         <ul>
-          {validationErrors.map(error => <li key={error}>{error}</li>)}
+          {validationErrors.map(error => <li style={{color: "red"}} key={error}>{error}</li>)}
         </ul>
         <div className='input-fields'>
           <label htmlFor="username">Username: </label>
