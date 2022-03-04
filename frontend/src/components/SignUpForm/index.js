@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from '../../store/session';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import './signupform.css';
 
 const SignUpForm = () => {
@@ -83,6 +83,9 @@ const SignUpForm = () => {
             required
           />
           <button type="submit" className="create-user">Create User</button>
+          <div className='cancel'>
+            <Link to='/' style={{textDecoration:"none", fontFamily:"Ubuntu"}}>Cancel</Link>
+          </div>
         </div>
       </form>
     </div>

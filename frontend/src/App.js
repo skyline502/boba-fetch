@@ -18,7 +18,6 @@ function App() {
   return isLoaded && (
     <div>
       <Navigation />
-      <h1>Boba fetch!</h1>
       <Switch>
         <Route path='/login'>
           <LoginFormPage />
