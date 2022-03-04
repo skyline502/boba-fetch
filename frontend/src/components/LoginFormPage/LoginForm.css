@@ -5,8 +5,8 @@
   align-items: center;
   border: 2mm ridge whitesmoke;
   border-radius: 25px;
-  width: 15vw;
-  height: 30vh;
+  width: 400px;
+  height: 100%;
 }
 
 .login-form {
