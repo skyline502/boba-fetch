@@ -43,11 +43,19 @@ export const restoreUser = (user) => async dispatch => {
 
 //sign up thunk action
 export const signUp = (user) => async dispatch => {
-  const response = await fetch('/api/users', {
+  const { username, email, password } = user;
+  const response = await csrfFetch('/api/users', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(user)
+    body: JSON.stringify({ username, email, password })
   });
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(setSessionUser(data.user));
+    return response;
+  }
+  return response;
 }
 
 //REDUCER FUNCTION
