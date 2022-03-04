@@ -11,7 +11,7 @@ const LoginFormPage = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
 
-  if (sessionUser) {
+  if (sessionUser) { //if there is a session user, then redirect to home
     return <Redirect to="/" />
   }
 
@@ -33,7 +33,7 @@ const LoginFormPage = () => {
 
   return (
     <div className='form-container'>
-      <h1>Please Login</h1>
+      <h1>Please Login!</h1>
       <form className='login-form' onSubmit={onSubmit}>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}

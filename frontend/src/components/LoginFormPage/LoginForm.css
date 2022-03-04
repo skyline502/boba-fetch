@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand&display=swap');
+
 .form-container {
+  font-family: lobster;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,6 +10,8 @@
   border-radius: 25px;
   width: 400px;
   height: 100%;
+  background-color: #d2c9b7;
+  color: #382618;
 }
 
 .login-form {
