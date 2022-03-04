@@ -1,6 +1,7 @@
 import { NavLink, Link } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux';
 import { logOut } from '../../store/session';
+import ProfileButton from "../Profile";
 import './Navigation.css';
 
 const Navigation = () => {
@@ -11,7 +12,7 @@ const Navigation = () => {
 
     if (sessionUser) {
         sessionLinks = (
-            <button onClick={() => dispatch(logOut())}>Log Out</button>
+            <ProfileButton user={sessionUser} />
         );
     } else {
         sessionLinks = (
@@ -30,13 +31,14 @@ const Navigation = () => {
                 <NavLink to='/'>
                     <img src="/images/Icon.png"></img>
                 </NavLink>
-                {/* <img src='/images/grogu.png' className="grogu"></img> */}
             </div>
             <div className="search">
                 <input type='text'></input>
                 <img src='/images/search.png' className="search-img"></img>
             </div>
-            {sessionLinks}
+            <div className="session-box">
+                {sessionLinks}
+            </div>
         </nav>
     )
 }
