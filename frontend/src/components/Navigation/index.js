@@ -9,6 +9,7 @@ const Navigation = () => {
                 <NavLink to='/'>
                     <img src="/images/Icon.png"></img>
                 </NavLink>
+                {/* <img src='/images/grogu.png' className="grogu"></img> */}
             </div>
             <div className="search">
                 <input type='text'></input>
