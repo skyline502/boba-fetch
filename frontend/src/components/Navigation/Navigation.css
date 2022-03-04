@@ -7,9 +7,11 @@
     height: 100px;
     border-bottom: 1px solid #382618;
     margin: 0;
+    width: auto;
+    background-color: whitesmoke;
 }
 
-.nav-bar img {
+.logo img {
     height: 80px;
     margin-top: 2px;
     margin-left: 115px;
@@ -34,7 +36,7 @@
     position: fixed;
     right: 0;
     top: 0;
-    margin: 10px 30px;
+    margin: 30px 30px;
 }
 
 button {
@@ -51,8 +53,54 @@ button a {
     color: black;
 }
 
+.sign-up {
+    background-color: #382618;
+    color: white;
+    height: 30px;
+}
+
+.log-in:hover {
+    background-color: #d2c9b7;
+    cursor: pointer;
+    color:#382618
+}
+
+.sign-up a{
+    color: white;
+}
+
+.sign-up:hover {
+    background-color: #d2c9b7;
+    color:#382618;
+}
+
 h3 {
     font-family: Ubuntu;
     font-size: x-large;
     margin-top: 30px;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+.search input {
+    height: 30px;
+    width: 200px;
+}
+
+.search img {
+    background-color: #382618;
+    height: 38px;
+    border-radius: 5px;
+    margin-left: 1px;
+}
+
+.search img:hover {
+    background-color: #d2c9b7;
+    color:#382618;
 }
