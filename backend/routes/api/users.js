@@ -18,7 +18,7 @@ const validateSignup = [
     .withMessage('Please provide a valid Email.'),
   check('username')
     .exists({ checkFalsy: true })
-    .isLength( { min: 4 })
+    .isLength({ min: 4 })
     .withMessage('Please provide a username with at least 4 characters.'),
   check('username')
     .not()
@@ -28,7 +28,7 @@ const validateSignup = [
     .exists({ checkFalsy: true })
     .isLength({ min: 6 })
     .withMessage('Password must be 6 characters or more.'),
-  handleValidationErrors
+    handleValidationErrors
 ];
 
 //ROUTES

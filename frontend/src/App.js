@@ -2,6 +2,7 @@ import { Route, Switch, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import LoginFormPage from './components/LoginFormPage';
 import Navigation from './components/Navigation';
+import SignUpForm from './components/SignUpForm';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from './store/session';
 import './index.css';
@@ -21,6 +22,9 @@ function App() {
       <Switch>
         <Route path='/login'>
           <LoginFormPage />
+        </Route>
+        <Route path='/signup'>
+          <SignUpForm />
         </Route>
       </Switch>
     </div>
