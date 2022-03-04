@@ -41,6 +41,15 @@ export const restoreUser = (user) => async dispatch => {
   return response;
 };
 
+//sign up thunk action
+export const signUp = (user) => async dispatch => {
+  const response = await fetch('/api/users', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(user)
+  });
+}
+
 //REDUCER FUNCTION
 const initialState = { user: null };
 
