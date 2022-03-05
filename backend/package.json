@@ -4,7 +4,6 @@
   "description": "## Authenticate Me - Backend In this multi-part project, you will learn how to put together an entire Express + React application with authentication.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "sequelize": "sequelize",
     "sequelize-cli": "sequelize-cli",
     "start": "per-env",
