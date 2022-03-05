@@ -1,27 +1,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand&display=swap');
 
 .form-container {
-  font-family: lobster;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2mm ridge whitesmoke;
-  border-radius: 25px;
-  width: 400px;
-  height: 100%;
-  background-color: #d2c9b7;
-  color: #382618;
+  background-color: whitesmoke;
+  height: 100vh;
+  width: 100vw;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  padding: 10px;
+  border: 1px solid #ece0d7;
+  width: 420px;
+  height: 100vh;
+  border-radius: 5px;
+  padding: 40px;
+  background-color: #f3ecdf;
 }
 
 .login-form input {
   margin: 10px;
+}
+
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: xx-large;
+  color: #382618;
+  width: 300px;
+  margin-top: 20px;
+  font-size: larger;
+  font-weight: bolder;
+  background-image: url('/public/images/Icon.png');
+  background-position-x: right;
+  background-size: 150px;
+  background-repeat: no-repeat;
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #d2c9b7;
+  padding: 20px 40px;
+  height: 300px;
+  border-radius: 15px;
+  box-shadow: 0px 10px 10px 1px #aaa18f;
+  color: #382618;
+}
+
+.submit-cancel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  margin-top: 20px;
 }

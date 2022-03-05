@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { loginUser } from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import './LoginForm.css';
 
 const LoginFormPage = () => {
@@ -33,28 +33,43 @@ const LoginFormPage = () => {
 
   return (
     <div className='form-container'>
-      <h1>Please Login!</h1>
       <form className='login-form' onSubmit={onSubmit}>
+        <div className='header'>
+          <h1>Welcome to Boba Fetch!</h1>
+        </div>
+          <p style={{fontWeight:'lighter'}}>Sign in to continue</p>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
-        <label htmlFor='name-email'>Username or Email: </label>
-        <input
-          type="text"
-          name="name-email"
-          value={credential}
-          onChange={e => setCredential(e.target.value)}
-        >
-        </input>
-        <label htmlFor='password'>Password: </label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        >
-        </input>
-        <button type="submit" className='login-button'>Login</button>
+        <div className='input-fields'>
+          <label htmlFor='name-email'>Username or Email: </label>
+          <input
+            type="text"
+            name="name-email"
+            value={credential}
+            onChange={e => setCredential(e.target.value)}
+          >
+          </input>
+          <label htmlFor='password'>Password: </label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          >
+          </input>
+          <div className='submit-cancel'>
+            <button type="submit" className='login-button'>Login</button>
+            <Link 
+            exact to='/'
+            style={{
+              textDecoration:'none',
+              marginTop: '5px'
+            }}
+            >Cancel
+            </Link>
+          </div>
+        </div>
       </form>
     </div>
   );
