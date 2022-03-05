@@ -41,49 +41,49 @@ const SignUpForm = () => {
   return (
     <div className="sign-up-container">
       <form onSubmit={onSubmit} className="sign-up-form">
-        <div className='header'>
+        <div className='sign-up-header'>
           <h1>Welcome to Boba Fetch!</h1>
-          <p>Sign up to continue</p>
+          <p style={{fontWeight:'lighter'}}>Sign up to continue</p>
         </div>
         <ul>
           {validationErrors.map(error => <li style={{color: "red"}} key={error}>{error}</li>)}
         </ul>
         <div className='input-fields'>
-          <label htmlFor="username">Username: </label>
           <input
             type="text"
             name="username"
+            placeholder="username"
             value={username}
             onChange={e => setUsername(e.target.value)}
             required
           />
-          <label htmlFor="email">Email: </label>
           <input
             type="email"
             name="email"
+            placeholder='email'
             value={email}
             onChange={e => setEmail(e.target.value)}
             required
           />
-          <label htmlFor="password">Password: </label>
           <input
             type="password"
             name="password"
+            placeholder='password'
             value={password}
             onChange={e => setPassword(e.target.value)}
             required
           />
-          <label htmlFor='confirm-password'>Confirm Password: </label>
           <input
             type="password"
             name="confirm-password"
+            placeholder='confirm password'
             value={confirmPassword}
             onChange={e => setConfirmPassword(e.target.value)}
             required
           />
           <button type="submit" className="create-user">Create User</button>
           <div className='cancel'>
-            <Link to='/' style={{textDecoration:"none", fontFamily:"Ubuntu"}}>Cancel</Link>
+            <Link to='/' style={{textDecoration:"none", fontFamily:"Ubuntu", marginTop: 10}}>Cancel</Link>
           </div>
         </div>
       </form>

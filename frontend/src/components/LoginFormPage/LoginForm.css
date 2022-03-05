@@ -6,36 +6,36 @@
   justify-content: center;
   align-items: center;
   background-color: whitesmoke;
-  height: 100vh;
+  height: auto;
   width: 100vw;
+  box-sizing: border-box;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
+  justify-items: flex-start;
   align-items: center;
   border: 1px solid #ece0d7;
   width: 420px;
   height: 100vh;
   border-radius: 5px;
-  padding: 40px;
+  padding: 0px 40px;
   background-color: #f3ecdf;
 }
 
-.login-form input {
-  margin: 10px;
+label {
+  font-family: Ubuntu;
 }
 
-
-.header {
+.log-in-header {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
+  font-family: Ubuntu;
   justify-content: space-between;
-  font-size: xx-large;
   color: #382618;
   width: 300px;
-  margin-top: 20px;
   font-size: larger;
   font-weight: bolder;
   background-image: url('/public/images/Icon.png');
@@ -44,14 +44,18 @@
   background-repeat: no-repeat;
 }
 
-.input-fields {
+p {
+  font-weight: bolder;
+}
+
+.login-input-fields {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   background-color: #d2c9b7;
-  padding: 20px 40px;
-  height: 300px;
+  padding: 20px 20px;
+  height: 200px;
   border-radius: 15px;
   box-shadow: 0px 10px 10px 1px #aaa18f;
   color: #382618;
@@ -64,4 +68,23 @@
   align-items: center;
   width: 300px;
   margin-top: 20px;
+  margin-left: 10px;
+}
+
+.login-button {
+  font-family: Ubuntu;
+  font-size: large;
+  background-color: #382618;
+  color: white;
+  height: 50px;
+  width: 300px;
+}
+
+.login-button:hover {
+  background-color: whitesmoke;
+  color: #382618;
+}
+
+a {
+  color: #382618;
 }
