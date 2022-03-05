@@ -104,3 +104,22 @@ h3 {
     background-color: #d2c9b7;
     color:#382618;
 }
+
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout{
+    background-color: #382618;
+    color: white;
+    height: 30px;
+    font-family: Ubuntu;
+}
+
+.logout:hover {
+    background-color: #d2c9b7;
+    cursor: pointer;
+    color:#382618
+}

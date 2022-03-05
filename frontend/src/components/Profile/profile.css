@@ -1,0 +1,20 @@
+.logout {
+  background-color: #382618;
+  color: white;
+  height: 30px;
+}
+
+ul.profile-dropdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,7 +1,6 @@
 import { NavLink, Link } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux';
 import { logOut } from '../../store/session';
-import ProfileButton from "../Profile";
 import './Navigation.css';
 
 const Navigation = () => {
@@ -12,12 +11,14 @@ const Navigation = () => {
 
     if (sessionUser) {
         sessionLinks = (
-            <ProfileButton user={sessionUser} />
+            <div className="profile">
+                <div>Welcome {sessionUser.username}!</div>
+                <button className="logout" onClick={() => dispatch(logOut())}>Log Out</button>
+            </div>
         );
     } else {
         sessionLinks = (
             <div className="buttons-container">
-
                 <Link to='/login'><button className="log-in">Login</button></Link>
                 <Link to='/signup'><button className="sign-up">Sign Up</button></Link>
             </div>
