@@ -27,7 +27,6 @@ const SignUpForm = () => {
       return dispatch(signUp(user))
         .catch(async (res) => {
           const data = await res.json();
-          console.log('data....errors', data)
           if (data && data.errors) {
             setValidationErrors(data.errors);
           }
