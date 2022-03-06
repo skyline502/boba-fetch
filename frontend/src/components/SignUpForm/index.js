@@ -43,12 +43,14 @@ const SignUpForm = () => {
       <form onSubmit={onSubmit} className="sign-up-form">
         <div className='sign-up-header'>
           <h1>Welcome to Boba Fetch!</h1>
-          <p style={{fontWeight:'lighter'}}>Sign up to continue</p>
         </div>
         <ul>
-          {validationErrors.map(error => <li style={{color: "red"}} key={error}>{error}</li>)}
+          {validationErrors.map(error => <li style={{ color: "red" }} key={error}>{error}</li>)}
         </ul>
         <div className='input-fields'>
+          <div className='signup-message'>
+            <p style={{ fontWeight: 'bolder' }}>Sign up to continue</p>
+          </div>
           <input
             type="text"
             name="username"
@@ -83,7 +85,7 @@ const SignUpForm = () => {
           />
           <button type="submit" className="create-user">Create User</button>
           <div className='cancel'>
-            <Link to='/' style={{textDecoration:"none", fontFamily:"Ubuntu", marginTop: 10}}>Cancel</Link>
+            <Link to='/' style={{ textDecoration: "none", fontFamily: "Ubuntu", marginTop: 10 }}>Cancel</Link>
           </div>
         </div>
       </form>

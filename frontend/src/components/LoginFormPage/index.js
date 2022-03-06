@@ -36,18 +36,21 @@ const LoginFormPage = () => {
       <form className='login-form' onSubmit={onSubmit}>
         <div className='log-in-header'>
           <h1>Welcome to Boba Fetch!</h1>
-          <p style={{fontWeight:'lighter'}}>Sign in to continue</p>
         </div>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
         <div className='login-input-fields'>
+          <div className='message'>
+            <p style={{ fontWeight: 'bolder' }}>Sign in to continue</p>
+          </div>
           <input
             type="text"
             name="name-email"
             placeholder="username or email"
             value={credential}
             onChange={e => setCredential(e.target.value)}
+            required
           >
           </input>
           <input
@@ -56,16 +59,17 @@ const LoginFormPage = () => {
             placeholder="password"
             value={password}
             onChange={e => setPassword(e.target.value)}
+            required
           >
           </input>
           <div className='submit-cancel'>
             <button type="submit" className='login-button'>Login</button>
-            <Link 
-            exact to='/'
-            style={{
-              textDecoration:'none',
-              marginTop: '5px'
-            }}
+            <Link
+              exact to='/'
+              style={{
+                textDecoration: 'none',
+                marginTop: '5px'
+              }}
             >Cancel
             </Link>
           </div>

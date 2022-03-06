@@ -15,16 +15,12 @@
 
 .logo img {
     height: 75px;
-    margin-top: 2px;
-    margin-left: 135px;
-    position: absolute;
-    left: 0;
-    top: 0;
 }
 
 .logo {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     padding: 10px;
 }
 
@@ -95,9 +91,10 @@ h3 {
 
 .search img {
     background-color: #382618;
-    height: 38px;
+    height: 31px;
     border-radius: 5px;
-    margin-left: 1px;
+    margin-left: 5px;
+    margin-top: 20px;
 }
 
 .search img:hover {

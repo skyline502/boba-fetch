@@ -11,6 +11,14 @@
   box-sizing: border-box;
 }
 
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  margin-left: 10px;
+}
+
 .login-form {
   display: flex;
   flex-direction: column;
@@ -55,7 +63,7 @@ p {
   justify-content: center;
   background-color: #d2c9b7;
   padding: 20px 20px;
-  height: 200px;
+  height: 250px;
   border-radius: 15px;
   box-shadow: 0px 10px 10px 1px #aaa18f;
   color: #382618;
