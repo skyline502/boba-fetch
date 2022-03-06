@@ -10,13 +10,15 @@ const SplashPage = () => {
         </div>
         <img src="/images/baby-yoda-eggs.gif" />
         <div className="splash-header">
-          <h1>Have a Boba Shop?</h1>
-          <h4>Grow your business faster!</h4>
-          <ul>
-            <li>Reach 3X more potential customers</li>
-            <li>Create your business on Boba Fetch! within minutes</li>
-            <li>Start advertising your business with Boba Fetch now!</li>
-          </ul>
+          <div className="splash-header-content">
+            <h1>Have a Boba Shop?</h1>
+            <h4>Grow your business faster!</h4>
+            <ul>
+              <li>Reach 3X more potential customers</li>
+              <li>Create your business on Boba Fetch! within minutes</li>
+              <li>Start advertising your business with Boba Fetch now!</li>
+            </ul>
+          </div>
           <Link to='/signup'><button className="splash-sign-up">Sign up now for free!</button></Link>
         </div>
       </div>

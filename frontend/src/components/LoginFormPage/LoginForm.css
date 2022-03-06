@@ -47,8 +47,8 @@ label {
   font-size: larger;
   font-weight: bolder;
   background-image: url('/public/images/Icon.png');
-  background-position-x: right;
-  background-size: 150px;
+  background-position-x: 120%;
+  background-size: 130px;
   background-repeat: no-repeat;
   margin-top: 200px;
 }
