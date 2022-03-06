@@ -55,6 +55,7 @@ input {
   background-position-x: right;
   background-size: 150px;
   background-repeat: no-repeat;
+  margin-top: 200px;
 }
 
 .input-fields {

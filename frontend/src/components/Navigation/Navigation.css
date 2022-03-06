@@ -7,7 +7,7 @@
     align-items: center;
     height: 75px;
     border-bottom: 1px solid #382618;
-    width: 100vw;
+    width: auto;
     background-color: whitesmoke;
     position: sticky;
     top: 0;
@@ -22,17 +22,17 @@
     align-items: center;
     justify-content: flex-start;
     padding: 10px;
+    margin: 15px;
 }
 
 .buttons-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* position: fixed;
-    right: 0;
-    top: 0; */
-    /* margin: 30px 30px; */
     box-sizing: border-box;
+    padding: 10px;
+    margin: 15px;
+    font-family: Ubuntu;
 }
 
 button {
@@ -80,8 +80,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-left: 40%;
-    margin-right: 40%; */
+    margin-bottom: 20px;
 }
 
 .search input {
@@ -91,10 +90,9 @@ h3 {
 
 .search img {
     background-color: #382618;
-    height: 31px;
+    height: 30px;
     border-radius: 5px;
-    margin-left: 5px;
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
 .search img:hover {

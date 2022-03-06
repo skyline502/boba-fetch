@@ -1,0 +1,96 @@
+.splash-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  height: 100vh;
+  width: 100vw;
+  margin-top: 0;
+}
+
+.splash-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  height: 100vh;
+  width: 420px;
+  margin-top: 0;
+  background-color: #f3ecdf;
+  padding: 40px;
+}
+
+.splash-page-header{
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  font-family: Ubuntu;
+  justify-content: space-between;
+  color: #382618;
+  width: 300px;
+  font-size: larger;
+  font-weight: bolder;
+  background-image: url('/public/images/Icon.png');
+  background-position-x: right;
+  background-size: 150px;
+  background-repeat: no-repeat;
+  margin-bottom: 40px;
+}
+
+.splash-body img {
+  border-radius: 15px;
+  width: 460px;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+h4 {
+  margin-left: 40px;
+  margin-bottom: 0;
+}
+
+.splash-header {
+  display: grid;
+  align-items: center;
+  width: 400px;
+  border: 1px solid white;
+  border-radius: 15px;
+  background-color: white;
+  padding: 20px;
+  font-family: Ubuntu;
+  margin-top: -40px;
+}
+
+.splash-header p {
+  font-family: Ubuntu;
+  font-weight: lighter;
+}
+
+.splash-sign-up {
+  background-color: #382618;
+  color: white;
+  height: 50px;
+  width: 400px;
+  font-size: larger;
+  font-weight: bolder;
+  font-family: Ubuntu;
+}
+
+.splash-sign-up a{
+  color: white;
+}
+
+.splash-sign-up:hover {
+  background-color: #d2c9b7;
+  color:#382618;
+}
+
+li {
+  list-style-type: none;
+  margin-bottom: 3px;
+  margin-top: 0;
+}
