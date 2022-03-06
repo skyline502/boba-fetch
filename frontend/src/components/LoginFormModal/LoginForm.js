@@ -20,7 +20,7 @@ const LoginForm = () => {
       password
     }
 
-    dispatch(loginUser(user))
+    return dispatch(loginUser(user))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
