@@ -5,10 +5,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: whitesmoke;
-  height: auto;
-  width: 100vw;
+  background-color: rgb(245, 245, 245, 0, 0);
+  height: 300px;
+  width: 300px;
   box-sizing: border-box;
+  border-radius: 15px;
+  border: 1px solid whitesmoke;
 }
 
 .message {
@@ -25,9 +27,9 @@
   justify-items: flex-start;
   align-items: center;
   border: 1px solid #ece0d7;
-  width: 420px;
-  height: 100vh;
-  border-radius: 5px;
+  width: 250px;
+  height: 320px;
+  border-radius: 25px;
   padding: 0px 40px;
   background-color: #f3ecdf;
 }
@@ -36,7 +38,7 @@ label {
   font-family: Ubuntu;
 }
 
-.log-in-header {
+/* .log-in-header {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -51,7 +53,7 @@ label {
   background-size: 130px;
   background-repeat: no-repeat;
   margin-top: 200px;
-}
+} */
 
 p {
   font-weight: bolder;
@@ -63,10 +65,10 @@ p {
   align-items: flex-start;
   justify-content: center;
   background-color: #d2c9b7;
-  padding: 20px 20px;
+  padding: 40px 40px;
   height: 250px;
   border-radius: 15px;
-  box-shadow: 0px 10px 10px 1px #aaa18f;
+  /* box-shadow: 0px 10px 10px 1px #aaa18f; */
   color: #382618;
 }
 

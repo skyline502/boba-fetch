@@ -1,19 +1,15 @@
 import { useState } from 'react';
 import { loginUser } from '../../store/session';
-import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './LoginForm.css';
 
-const LoginFormPage = () => {
+const LoginForm = () => {
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
-
-  if (sessionUser) { //if there is a session user, then redirect to home
-    return <Redirect to="/" />
-  }
+  // const sessionUser = useSelector(state => state.session.user);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -34,11 +30,8 @@ const LoginFormPage = () => {
   return (
     <div className='form-container'>
       <form className='login-form' onSubmit={onSubmit}>
-        <div className='log-in-header'>
-          <h1>Welcome to Boba Fetch!</h1>
-        </div>
         <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          {errors.map((error, idx) => <li style={{color: 'red'}} key={idx}>{error}</li>)}
         </ul>
         <div className='login-input-fields'>
           <div className='message'>
@@ -64,14 +57,6 @@ const LoginFormPage = () => {
           </input>
           <div className='submit-cancel'>
             <button type="submit" className='login-button'>Login</button>
-            <Link
-              exact to='/'
-              style={{
-                textDecoration: 'none',
-                marginTop: '5px'
-              }}
-            >Cancel
-            </Link>
           </div>
         </div>
       </form>
@@ -79,4 +64,4 @@ const LoginFormPage = () => {
   );
 };
 
-export default LoginFormPage;
+export default LoginForm;

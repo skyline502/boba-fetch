@@ -1,6 +1,7 @@
 import { NavLink, Link } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux';
 import { logOut } from '../../store/session';
+import LoginFormModal from "../LoginFormModal";
 import './Navigation.css';
 
 const Navigation = () => {
@@ -19,7 +20,7 @@ const Navigation = () => {
     } else {
         sessionLinks = (
             <div className="buttons-container">
-                <Link to='/login'><button className="log-in">Login</button></Link>
+                <LoginFormModal />
                 <Link to='/signup'><button className="sign-up">Sign Up</button></Link>
             </div>
         );
