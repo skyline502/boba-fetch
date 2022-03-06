@@ -1,0 +1,14 @@
+.demo-button {
+  font-family: Ubuntu;
+  font-size: large;
+  background-color: #382618;
+  color: white;
+  height: 50px;
+  width: 300px;
+}
+
+.demo-button:hover {
+  background-color: whitesmoke;
+  color: #382618;
+  cursor: pointer;
+}

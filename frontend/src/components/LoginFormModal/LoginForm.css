@@ -94,6 +94,7 @@ p {
 .login-button:hover {
   background-color: whitesmoke;
   color: #382618;
+  cursor: pointer;
 }
 
 a {

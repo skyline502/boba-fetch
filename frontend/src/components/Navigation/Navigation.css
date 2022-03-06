@@ -53,21 +53,18 @@ button a {
     background-color: #382618;
     color: white;
     height: 30px;
-}
-
-.log-in:hover {
-    background-color: #d2c9b7;
-    cursor: pointer;
-    color:#382618
+    font-family: Ubuntu;
 }
 
 .sign-up a{
     color: white;
+
 }
 
 .sign-up:hover {
     background-color: #d2c9b7;
-    color:#382618;
+    color:whitesmoke;
+    cursor: pointer;
 }
 
 h3 {
@@ -98,6 +95,7 @@ h3 {
 .search img:hover {
     background-color: #d2c9b7;
     color:#382618;
+    cursor: pointer;
 }
 
 .profile {
@@ -118,3 +116,30 @@ h3 {
     cursor: pointer;
     color:#382618
 }
+
+.demo-button {
+    font-family: Ubuntu;
+    background-color: #d2c9b7;
+    color: whitesmoke;
+    height: 30px;
+    width: 100px;
+  }
+
+  .demo-button:hover {
+    background-color: #382618;
+    color: #d2c9b7;
+    cursor: pointer;
+  }
+
+  .log-in-button {
+    background-color: #382618;
+    color: white;
+    height: 30px;
+    font-family: Ubuntu;
+  }
+
+  .log-in-button:hover {
+    background-color: #d2c9b7;
+    color: whitesmoke;
+    cursor: pointer;
+  }
