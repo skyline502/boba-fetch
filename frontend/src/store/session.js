@@ -1,4 +1,5 @@
 import { csrfFetch } from "./csrf";
+import { Redirect } from "react-router-dom";
 
 const SET_SESSION_USER = '/api/session/SET_SESSION_USER';
 const REMOVE_SESSION_USER = 'api/session/REMOVE_SESSION_USER';
@@ -53,7 +54,7 @@ export const signUp = (user) => async dispatch => {
   if (response.ok) {
     const data = await response.json();
     dispatch(setSessionUser(data.user));
-    return response;
+    return (response);
   }
   return response;
 }

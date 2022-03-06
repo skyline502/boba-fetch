@@ -1,7 +1,25 @@
 import './SplashPage.css';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const SplashPage = () => {
+  const sessionUser = useSelector(state => state.session.user);
+
+  if (sessionUser) {
+    return (
+      <div className="splash-container">
+      <div className='splash-body'>
+        <div className='splash-page-header'>
+          <h1>Welcome to Boba Fetch!</h1>
+        </div>
+        <img src="/images/baby-yoda-eggs.gif" />
+        <div className="splash-header">
+          <h4>Welcome to the site: {sessionUser.username}</h4>
+        </div>
+      </div>
+    </div>
+    )
+  }
   return (
     <div className="splash-container">
       <div className='splash-body'>
@@ -23,7 +41,6 @@ const SplashPage = () => {
         </div>
       </div>
     </div>
-
   )
 };
 

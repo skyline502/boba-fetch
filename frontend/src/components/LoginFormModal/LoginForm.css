@@ -24,7 +24,7 @@
 .login-form {
   display: flex;
   flex-direction: column;
-  justify-items: flex-start;
+  justify-items: center;
   align-items: center;
   border: 1px solid #ece0d7;
   width: 250px;

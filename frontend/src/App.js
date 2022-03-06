@@ -1,6 +1,5 @@
 import { Route, Switch, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import LoginFormPage from './components/LoginFormModal';
 import Navigation from './components/Navigation';
 import SignUpForm from './components/SignUpForm';
 import SplashPage from './components/SplashPage';
