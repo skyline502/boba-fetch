@@ -27,7 +27,7 @@ export const getBusinesses = () => async dispatch => {
 const sortList = (list) => {
   return list.sort((businessA, businessB) => {
     return businessA.zipCode - businessB.zipCode;
-  }).map((business) => business.id);
+  }).map((business) => business);
 };
 
 const initialState = { businesses: [] };

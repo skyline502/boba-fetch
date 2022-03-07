@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Navigation from './components/Navigation';
 import SignUpForm from './components/SignUpForm';
 import SplashPage from './components/SplashPage';
+import BusinessList from './components/BusinessList';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from './store/session';
 import './index.css';
@@ -24,6 +25,9 @@ function App() {
         </Route>
         <Route path='/signup'>
           <SignUpForm />
+        </Route>
+        <Route path='/businesses'>
+          <BusinessList />
         </Route>
       </Switch>
     </div>
