@@ -2,7 +2,12 @@ import { csrfFetch } from "./csrf";
 import { Redirect } from "react-router-dom";
 
 const GET_LIST = '/api/businesses/GET_LIST';
+const ADD_SHOP = '/api/businesses/ADD_SHOP';
 
+
+//actions
+
+//get list of all businesses
 const getList = (list) => {
   return {
     type: GET_LIST,
@@ -10,7 +15,19 @@ const getList = (list) => {
   }
 };
 
+//add a business
+const addShop = (shop) => {
+  return {
+    type: ADD_SHOP,
+    shop
+  }
+};
 
+
+
+//thunks
+
+//getBusinesses
 export const getBusinesses = () => async dispatch => {
   const response = await csrfFetch('/api/businesses');
   console.log('getBusiness res:', response)
@@ -19,6 +36,25 @@ export const getBusinesses = () => async dispatch => {
     dispatch(getList(list));
     console.log('business list: ', list)
     return list;
+  }
+
+  return response;
+}
+
+//createBusiness
+export const addBusiness = (shop) => async dispatch => {
+  const response = await csrfFetch('/api/businesses', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(shop)
+  });
+
+  console.log('create shop:', response);
+  if (response.ok) {
+    const data = await response.json();
+    console.log('shop data: ', data)
+    dispatch(addShop(data.shop))
+    return response;
   }
 
   return response;
@@ -45,6 +81,9 @@ const businessReducer = (state = initialState, action) => {
         ...state,
         businesses: sortList(action.list)
       };
+    }
+    case ADD_SHOP: {
+
     }
     default:
       return state;

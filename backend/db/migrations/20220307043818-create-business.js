@@ -19,7 +19,8 @@ module.exports = {
       },
       address: {
         allowNull: false,
-        type: Sequelize.STRING(256)
+        type: Sequelize.STRING(256),
+        unique: true
       },
       city: {
         allowNull: false,
@@ -35,7 +36,8 @@ module.exports = {
       },
       phone: {
         allowNull: false,
-        type: Sequelize.STRING(10)
+        type: Sequelize.STRING(10),
+        unique: true
       },
       businessImg: {
         type: Sequelize.STRING

@@ -50,4 +50,13 @@ router.get('/', asyncHandler(async (req, res) => {
     return res.json(businesses);
 }));
 
+router.post('/', validateBusiness, asyncHandler(async (req, res) => {
+    const { name, address, city, state, zipCode, phone, description, ownerId, businessImg } = req.body;
+    const business = await Business.create({
+        name, address, city, state, zipCode, phone, description, ownerId, businessImg
+    });
+
+    return res.json({ business });
+}));
+
 module.exports = router;
