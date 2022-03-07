@@ -22,3 +22,32 @@ const getBusinesses = () => async dispatch => {
 
   return response;
 }
+
+const sortList = (list) => {
+  return list.sort((businessA, businessB) => {
+    return businessA.zipCode - businessB.zipCode;
+  }).map((business) => business.id);
+};
+
+const initialState = { businesses: [] };
+
+const businessReducer = (state = initialState, action) => {
+  let newState;
+  switch (action.type) {
+    case GET_LIST: {
+      const allBusinesses = {};
+      action.list.forEach(business => {
+        allBusinesses[business.id] = business;
+      });
+      return {
+        ...allBusinesses,
+        ...state,
+        businesses: sortList(action.list)
+      };
+    }
+    default:
+      return state;
+  }
+};
+
+export default businessReducer;
