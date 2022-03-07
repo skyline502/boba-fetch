@@ -1,5 +1,5 @@
 import './SplashPage.css';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const SplashPage = () => {
