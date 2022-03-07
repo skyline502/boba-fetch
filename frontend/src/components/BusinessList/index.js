@@ -35,7 +35,7 @@ const BusinessList = () => {
           <h4>{selectedShop.address}</h4>
           <h4>{selectedShop.city}, {selectedShop.state} {selectedShop.zipCode}</h4>
           <h4>Phone: ({selectedShop.phone.split('').slice(0, 3)}) {selectedShop.phone.split('').slice(3, 6)}-{selectedShop.phone.split('').slice(6)}</h4>
-          <p style={{fontWeight: 'lighter'}}>{selectedShop.description}</p>
+          <p style={{ fontWeight: 'lighter' }}>{selectedShop.description}</p>
         </div>
       </div>
     );
@@ -57,15 +57,21 @@ const BusinessList = () => {
           {list.map(shop => (
             <div key={shop.id} className="shop-box">
               <img
-              src={shop.businessImg}
-              style={{ width: 200 }}
-              onClick={ () => setSelectedId(shop.id) }
+                src={shop.businessImg}
+                style={{ width: 200 }}
               />
               <div className='shop-info'>
                 <h2>{shop.name}</h2>
                 <h6>{shop.address}</h6>
                 <h6>{shop.city}, {shop.state} {shop.zipCode}</h6>
                 <h6>Phone: ({shop.phone.split('').slice(0, 3)}) {shop.phone.split('').slice(3, 6)}-{shop.phone.split('').slice(6)}</h6>
+                <div style={{display:'flex', justifyContent:'center', width: '100%'}}>
+                  <button
+                    onClick={() => setSelectedId(shop.id)}
+                    className="more-info-button">
+                    Info
+                  </button>
+                </div>
               </div>
             </div>
           ))}

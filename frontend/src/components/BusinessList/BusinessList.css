@@ -67,3 +67,17 @@
 .selected-shop-info h4 {
   margin-bottom: 0;
 }
+
+.more-info-button{
+  background-color: #382618;
+  color: white;
+  height: 30px;
+  font-family: Ubuntu;
+  margin-bottom: 10px;
+}
+
+.more-info-button:hover {
+  background-color: #d2c9b7;
+  cursor: pointer;
+  color:#382618
+}

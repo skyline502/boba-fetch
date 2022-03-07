@@ -1,5 +1,6 @@
 import { NavLink, Link } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { logOut } from '../../store/session';
 import LoginFormModal from "../LoginFormModal";
 import DemoButton from "../DemoButton";
@@ -8,14 +9,15 @@ import './Navigation.css';
 const Navigation = () => {
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
+    const [navDisplay, setNavDisplay] = useState(false);
 
     let sessionLinks;
 
     if (sessionUser) {
         sessionLinks = (
             <div className="profile">
-                <div style={{marginRight: 10}}>{sessionUser.username}!</div>
-                <img style={{width: '40px', borderRadius:'50%'}} src={sessionUser.profileImg}></img>
+                <div style={{ marginRight: 10 }}>{sessionUser.username}!</div>
+                <img style={{ width: '40px', borderRadius: '50%' }} src={sessionUser.profileImg}></img>
                 <button className="logout" onClick={() => dispatch(logOut())}>Log Out</button>
             </div>
         );
@@ -36,7 +38,9 @@ const Navigation = () => {
                 <NavLink to='/'>
                     <img src="/images/Icon.png"></img>
                 </NavLink>
-                <NavLink to='/businesses'>Boba Shops</NavLink>
+                <NavLink to='/businesses'>
+                    <button className="menu">Businesses</button>
+                </NavLink>
             </div>
             <div className="search">
                 <input type='text'></input>
