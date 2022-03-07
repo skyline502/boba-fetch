@@ -44,11 +44,11 @@ export const restoreUser = (user) => async dispatch => {
 
 //sign up thunk action
 export const signUp = (user) => async dispatch => {
-  const { username, email, password } = user;
+  const { username, email, password, profileImg } = user;
   const response = await csrfFetch('/api/users', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({ username, email, password })
+    body: JSON.stringify({ username, email, password, profileImg })
   });
 
   if (response.ok) {

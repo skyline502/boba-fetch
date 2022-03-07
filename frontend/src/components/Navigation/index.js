@@ -14,7 +14,8 @@ const Navigation = () => {
     if (sessionUser) {
         sessionLinks = (
             <div className="profile">
-                <div>Welcome {sessionUser.username}!</div>
+                <div style={{marginRight: 10}}>{sessionUser.username}!</div>
+                <img style={{width: '30px', borderRadius: 30}} src={sessionUser.profileImg}></img>
                 <button className="logout" onClick={() => dispatch(logOut())}>Log Out</button>
             </div>
         );

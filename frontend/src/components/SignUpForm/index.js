@@ -9,6 +9,7 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [profileImg, setProfileImg] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
@@ -20,7 +21,7 @@ const SignUpForm = () => {
   const onSubmit = e => {
     e.preventDefault();
 
-    const user = { username, email, password }
+    const user = { username, email, password, profileImg }
 
     if (password === confirmPassword) {
       setValidationErrors([]);
@@ -82,6 +83,13 @@ const SignUpForm = () => {
             value={confirmPassword}
             onChange={e => setConfirmPassword(e.target.value)}
             required
+          />
+          <input
+          type="text"
+          name="profile-image"
+          placeholder='Profile url'
+          value={profileImg}
+          onChange={e => setProfileImg(e.target.value)}
           />
           <button type="submit" className="create-user">Create User</button>
           <div className='cancel'>
