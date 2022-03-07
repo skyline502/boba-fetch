@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 const SplashPage = () => {
   const sessionUser = useSelector(state => state.session.user);
+  console.log(sessionUser);
 
   if (sessionUser) {
     return (
@@ -15,6 +16,7 @@ const SplashPage = () => {
         <img src="/images/baby-yoda-eggs.gif" />
         <div className="splash-header">
           <h4>Welcome to the site: {sessionUser.username}</h4>
+          <p>UserId: {sessionUser.id}</p>
         </div>
       </div>
     </div>
