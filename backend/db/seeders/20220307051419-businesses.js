@@ -16,6 +16,7 @@ module.exports = {
        city: 'San Jose',
        state: 'CA',
        zipCode: '95133',
+       phone: '6692842115',
        businessImg: 'http://happylemonwest.com/wp-content/uploads/2020/09/cropped-HL-New-Logo-black-png.png',
        description: 'Happy Lemon has been providing tasty tea for over fifteen years.'
      },
@@ -26,6 +27,7 @@ module.exports = {
       city: 'San Jose',
       state: 'CA',
       zipCode: '95122',
+      phone: '6692842115',
       businessImg: 'http://happylemonwest.com/wp-content/uploads/2020/09/cropped-HL-New-Logo-black-png.png',
       description: 'Happy Lemon has been providing tasty tea for over fifteen years.'
     },  {
@@ -35,6 +37,7 @@ module.exports = {
       city: 'San Jose',
       state: 'CA',
       zipCode: '95121',
+      phone: '6692842115',
       businessImg: 'http://happylemonwest.com/wp-content/uploads/2020/09/cropped-HL-New-Logo-black-png.png',
       description: 'Happy Lemon has been providing tasty tea for over fifteen years.'
     },  {
@@ -44,6 +47,7 @@ module.exports = {
       city: 'San Jose',
       state: 'CA',
       zipCode: '95110',
+      phone: '6692842115',
       businessImg: 'http://happylemonwest.com/wp-content/uploads/2020/09/cropped-HL-New-Logo-black-png.png',
       description: 'Happy Lemon has been providing tasty tea for over fifteen years.'
     },  {
@@ -53,6 +57,7 @@ module.exports = {
       city: 'Milpitas',
       state: 'CA',
       zipCode: '95035',
+      phone: '6692842115',
       businessImg: 'http://happylemonwest.com/wp-content/uploads/2020/09/cropped-HL-New-Logo-black-png.png',
       description: 'Happy Lemon has been providing tasty tea for over fifteen years.'
     },  {
@@ -62,6 +67,7 @@ module.exports = {
       city: 'San Jose',
       state: 'CA',
       zipCode: '95123',
+      phone: '6692842115',
       businessImg: 'http://happylemonwest.com/wp-content/uploads/2020/09/cropped-HL-New-Logo-black-png.png',
       description: 'Happy Lemon has been providing tasty tea for over fifteen years.'
     },

@@ -34,6 +34,7 @@ const BusinessList = () => {
             <img src={shop.businessImg} style={{width: 200}}/>
             <h6>{shop.address}</h6>
             <h6>{shop.city}, {shop.state} {shop.zipCode}</h6>
+            <h6>Phone: ({shop.phone.split('').slice(0, 3)}) {shop.phone.split('').slice(3, 6)}-{shop.phone.split('').slice(6)}</h6>
             <p>{shop.description}</p>
           </div>
         ))}

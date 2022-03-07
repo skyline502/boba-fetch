@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
         len: [3, 100]
       }
     },
-    state: { 
+    state: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -38,6 +38,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         len: [5, 5]
+      }
+    },
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [10],
+        isNumeric: true,
       }
     },
     businessImg: {

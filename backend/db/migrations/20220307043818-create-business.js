@@ -33,6 +33,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(5)
       },
+      phone: {
+        allowNull: false,
+        type: Sequelize.STRING(10)
+      },
       businessImg: {
         type: Sequelize.STRING
       },
