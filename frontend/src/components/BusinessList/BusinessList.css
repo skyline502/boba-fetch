@@ -13,7 +13,7 @@
 .shop-list {
   overflow-y: scroll;
   height: 100vh;
-  padding: 10px;
+  padding: 0px 100px;
 }
 
 .shop-list::-webkit-scrollbar {
@@ -25,14 +25,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0px 20px;
 }
 
 .shop-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
+  width: 75%;
   padding: 0px 20px;
   margin-left: 100px;
   background-color: white;
+  border-radius: 25px;
+  margin-top: -40px;
+}
+
+.shop-info h6 {
+  margin-top: 0;
 }
