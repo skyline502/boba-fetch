@@ -33,7 +33,7 @@ const validateBusiness = [
         .withMessage('Please enter a valid zipcode'),
     check('description')
         .exists({ checkFalsy: true })
-        .withMessage('Please enter a brief description about your Business.'),        
+        .withMessage('Please enter a brief description about your Business.'),
     handleValidationErrors
 ];
 
@@ -42,7 +42,7 @@ router.get('/', asyncHandler(async (req, res) => {
     res.cookie('XSRF-TOKEN', req.csrfToken());
     const businesses = await Business.findAll();
     console.log(businesses);
-    res.send(JSON.stringify(businesses));
+    return res.json(businesses);
 }));
 
 module.exports = router;
