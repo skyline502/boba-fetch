@@ -1,4 +1,38 @@
 .shop-list-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f3ecdf;
+}
+
+.profile-body {
+  padding: 0px 50px;
+}
+
+.shop-list {
+  overflow-y: scroll;
+  height: 100vh;
+  padding: 10px;
+}
+
+.shop-list::-webkit-scrollbar {
+  display: none;
+}
+
+.shop-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.shop-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0px 20px;
+  margin-left: 100px;
+  background-color: white;
 }

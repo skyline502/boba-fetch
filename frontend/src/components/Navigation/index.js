@@ -36,6 +36,7 @@ const Navigation = () => {
                 <NavLink to='/'>
                     <img src="/images/Icon.png"></img>
                 </NavLink>
+                <NavLink to='/businesses'>Boba Shops</NavLink>
             </div>
             <div className="search">
                 <input type='text'></input>

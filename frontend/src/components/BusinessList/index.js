@@ -17,25 +17,24 @@ const BusinessList = () => {
 
   return (
     <div className='shop-list-container'>
-      <div className='profile-body'>
-        <div className='profile-page-header'>
+      <div className='selected-shop'>
+        <div className='shop-header'>
           <h1>Welcome to Boba Fetch!</h1>
         </div>
         <img src="/images/baby-yoda-eggs.gif" />
         <div className="profile-header">
-          <h4>Welcome to the site: {sessionUser.username}</h4>
-          <p>UserId: {sessionUser.id}</p>
         </div>
       </div>
       <div className='shop-list'>
         {list.map(shop => (
-          <div key={shop.id}>
-            <h2>{shop.name}</h2>
-            <img src={shop.businessImg} style={{width: 200}}/>
-            <h6>{shop.address}</h6>
-            <h6>{shop.city}, {shop.state} {shop.zipCode}</h6>
-            <h6>Phone: ({shop.phone.split('').slice(0, 3)}) {shop.phone.split('').slice(3, 6)}-{shop.phone.split('').slice(6)}</h6>
-            <p>{shop.description}</p>
+          <div key={shop.id} className="shop-box">
+            <img src={shop.businessImg} style={{ width: 200 }} />
+            <div className='shop-info'>
+              <h2>{shop.name}</h2>
+              <h6>{shop.address}</h6>
+              <h6>{shop.city}, {shop.state} {shop.zipCode}</h6>
+              <h6>Phone: ({shop.phone.split('').slice(0, 3)}) {shop.phone.split('').slice(3, 6)}-{shop.phone.split('').slice(6)}</h6>
+            </div>
           </div>
         ))}
       </div>
