@@ -7,7 +7,7 @@ import DeleteBusinessModal from '../DeleteBusiness';
 const BusinessList = () => {
   const sessionUser = useSelector(state => state.session.user);
   const shops = useSelector(state => state.businesses);
-
+  console.log('shops............', shops)
 
   const dispatch = useDispatch();
   const list = shops.businesses;
@@ -31,7 +31,7 @@ const BusinessList = () => {
   if (selectedShop) {
     selected = (
       <div className='selected-shop'>
-        <img src={selectedShop.businessImg} style={{ width: 400 }} />
+        <img src={selectedShop.businessImg ? selectedShop.businessImg : '/images/logo.png'} style={{ width: 400 }} />
         <div className="selected-shop-info">
           <h1>{selectedShop.name}</h1>
           {sessionUser && selectedShop.ownerId === sessionUser.id ?
@@ -65,7 +65,7 @@ const BusinessList = () => {
           {list.map(shop => (
             <div key={shop.id} className="shop-box">
               <img
-                src={shop.businessImg}
+                src={shop.businessImg ? shop.businessImg : '/images/logo.png'}
                 style={{ width: 200 }}
               />
               <div className='shop-info'>

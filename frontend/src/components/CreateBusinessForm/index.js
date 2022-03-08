@@ -14,7 +14,7 @@ const CreateBusiness = () => {
   const [zipCode, setZipCode] = useState('');
   const [phone, setPhone] = useState('');
   const [description, setDescription] = useState('');
-  const [businessImg, setBusinessImg] = useState('');
+  const [businessImg, setBusinessImg] = useState();
   const [validationErrors, setValidationErrors] = useState([]);
   const dispatch = useDispatch();
   const history = useHistory();

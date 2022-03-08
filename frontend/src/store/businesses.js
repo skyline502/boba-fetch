@@ -109,6 +109,11 @@ const businessReducer = (state = initialState, action) => {
       newState = {...state};
       return newState;
     }
+    case DELETE_SHOP: {
+      newState = {...state};
+      delete newState[action.businessId];
+      return newState;
+    }
     default:
       return state;
   }

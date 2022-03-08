@@ -1,7 +1,7 @@
 import './DeleteBusiness.css';
 import { useHistory, NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { deleteBusiness } from '../../store/businesses';
+import { deleteBusiness, getBusinesses } from '../../store/businesses';
 import './DeleteBusiness.css';
 
 const DeleteBusiness = ({ businessId }) => {
@@ -11,6 +11,8 @@ const DeleteBusiness = ({ businessId }) => {
   const onSubmit = async e => {
     e.preventDefault();
     let deleted = await dispatch(deleteBusiness(businessId));
+
+
 
     if (deleted) {
       history.push('/message');
