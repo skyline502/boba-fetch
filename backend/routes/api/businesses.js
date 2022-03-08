@@ -72,15 +72,17 @@ router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
 }));
 
 //EDIT BUSINESS
-router.get('/:id(\\d+)/edit', asyncHandler(async(req, res) => {
-    const id = req.params.id;
-    const shop = await Business.findByPk(id);
+// router.get('/:id(\\d+)/edit', asyncHandler(async(req, res) => {
+//     const id = req.params.id;
+//     const shop = await Business.findByPk(id);
 
-    res.json(shop);
-}))
-// router.put('/:id(\\d+)/edit', validateBusiness, asyncHandler(async (req, res) => {
-//     const shop = await Business.findByPk(req.params.id);
+//     res.json(shop);
+// }))
+router.put('/:id(\\d+)/edit', validateBusiness, asyncHandler(async (req, res) => {
+    const shop = await Business.findByPk(req.params.id);
+    const { name, address, city, state, zipCode, phone, description, ownerId, businessImg } = req.body;
 
-// }));
+
+}));
 
 module.exports = router;

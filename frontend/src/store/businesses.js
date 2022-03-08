@@ -4,6 +4,8 @@ import { Redirect } from "react-router-dom";
 const GET_LIST = '/api/businesses/GET_LIST';
 const ADD_SHOP = '/api/businesses/ADD_SHOP';
 const DELETE_SHOP = '/api/business/DELETE_SHOP';
+const EDIT_SHOP = '/api/business/EDIT_SHOP';
+const GET_ONE = '/api/business/GET_ONE';
 
 
 //actions
@@ -28,6 +30,20 @@ const deleteShop = (businessId) => {
   return {
   type: DELETE_SHOP,
   businessId
+  }
+}
+
+const editShop = (shop) => {
+  return {
+    type: EDIT_SHOP,
+    shop
+  }
+}
+
+const getOne = (id) => {
+  return {
+    type: GET_ONE,
+    id
   }
 }
 

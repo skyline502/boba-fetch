@@ -2,6 +2,7 @@ import './BusinessList.css';
 import { getBusinesses } from '../../store/businesses';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import DeleteBusinessModal from '../DeleteBusiness';
 
 const BusinessList = () => {
@@ -36,7 +37,7 @@ const BusinessList = () => {
           <h1>{selectedShop.name}</h1>
           {sessionUser && selectedShop.ownerId === sessionUser.id ?
             <div className='delete-edit-buttons'>
-              <button className="edit-button">Edit</button>
+              <Link to={`/businesses/${selectedShop.id}/edit`}><button className="edit-button">Edit</button></Link>
               <DeleteBusinessModal businessId={selectedShop.id} />
             </div> : <></>
           }

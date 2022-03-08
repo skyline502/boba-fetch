@@ -5,18 +5,25 @@ import SignUpForm from './components/SignUpForm';
 import SplashPage from './components/SplashPage';
 import BusinessList from './components/BusinessList';
 import CreateBusiness from './components/CreateBusinessForm';
+import EditBusiness from './components/EditBusinessForm';
 import Message from './components/Message';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from './store/session';
+import * as businessActions from './store/businesses';
 import './index.css';
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-
+  const shops = useSelector(state => state.businesses);
+  console.log('shops on app page', shops)
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch])
+
+  useEffect(() => {
+    dispatch(businessActions.getBusinesses());
+  }, [])
 
   return isLoaded && (
     <div>
@@ -36,6 +43,9 @@ function App() {
         </Route>
         <Route path='/message'>
           <Message />
+        </Route>
+        <Route path='/businesses/:id/edit'>
+          <EditBusiness list={shops}/>
         </Route>
       </Switch>
     </div>
