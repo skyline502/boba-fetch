@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from '../../store/session';
 import { Redirect, Link, useHistory, useParams } from 'react-router-dom';
-import { addBusiness, getBusinesses } from '../../store/businesses';
+import { editBusiness, getBusinesses } from '../../store/businesses';
 import './EditBusiness.css';
 
 const EditBusiness = ({list}) => {
@@ -44,17 +44,18 @@ const EditBusiness = ({list}) => {
     console.log('new business:', business);
     setValidationErrors([]);
 
-    let shop = await dispatch(addBusiness(business))
+    let shop = await dispatch(editBusiness(id, business))
       .catch(async res => {
         const data = await res.json();
+        console.log('data;;;;;;', data)
         if (data && data.errors) {
           setValidationErrors(data.errors);
         }
       });
 
-    console.log('does this get created', shop)
+    console.log(shop, 'line56')
 
-    if (shop) {
+    if (shop.id) {
       history.push('/businesses');
       console.log('does this run?');
     }

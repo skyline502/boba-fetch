@@ -17,8 +17,8 @@ const validateBusiness = [
         .withMessage('Please provide a name for your business.  Name must be between 5 and 50 characters long.'),
     check('address')
         .exists({ checkFalsy: true })
-        .isLength({ min: 15, max: 95 })
-        .withMessage('Please provide an address with a length between 15 and 95 characters long.'),
+        .isLength({ min: 10, max: 95 })
+        .withMessage('Please provide an address with a length between 10 and 95 characters long.'),
     check('city')
         .exists({ checkFalsy: true })
         .isLength({ min: 3, max: 100 })
@@ -81,7 +81,9 @@ router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
 router.put('/:id(\\d+)/edit', validateBusiness, asyncHandler(async (req, res) => {
     const shop = await Business.findByPk(req.params.id);
     const { name, address, city, state, zipCode, phone, description, ownerId, businessImg } = req.body;
-    shop.update({name, address, city, state, zipCode, phone, description, ownerId, businessImg});
+    const data = await shop.update({name, address, city, state, zipCode, phone, description, ownerId, businessImg});
+    console.log('update response', data);
+    return res.json(data);
 }));
 
 module.exports = router;

@@ -107,7 +107,12 @@ export const editBusiness = (businessId, business) => async dispatch => {
     body: JSON.stringify(business)
   });
 
-  console.log('response......', response);
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(editShop(data));
+    return data;
+  }
+  return response;
 }
 
 const sortList = (list) => {
@@ -139,6 +144,11 @@ const businessReducer = (state = initialState, action) => {
     case DELETE_SHOP: {
       newState = {...state};
       delete newState[action.businessId];
+      return newState;
+    }
+    case EDIT_SHOP: {
+      newState = {...state};
+      newState[action.businessId] = action.business;
       return newState;
     }
     default:
