@@ -1,8 +1,10 @@
 .delete-form-container {
+  position:relative;
   display: flex;
   height: 200px;
   width: 200px;
   border-radius: 25px;
+  margin-right: 270px;
 }
 
 .delete-business-button{
