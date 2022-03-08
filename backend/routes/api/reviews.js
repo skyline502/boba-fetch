@@ -19,16 +19,11 @@ const validateReview = [
 ]
 
 //ROUTES
-router.get('/:businessId(\\d+)', asyncHandler(async (req, res) => {
+router.get('/', asyncHandler(async (req, res) => {
   res.cookie('XSRF-TOKEN', req.csrfToken());
-  const businessId = req.params.businessId
-  const reviews = await Review.findAll({
-    where: {
-      businessId
-    }
-  });
+  const reviews = await Review.findAll();
   console.log('review list: ', reviews);
   return res.json(reviews);
-}))
+}));
 
 module.exports = router;

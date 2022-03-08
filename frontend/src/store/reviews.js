@@ -14,8 +14,8 @@ const getReviews = (reviews) => {
 
 
 //thunks
-export const getStoreReviews = (businessId) => async dispatch => {
-  const response = await csrfFetch(`/api/reviews/${businessId}`);
+export const getStoreReviews = () => async dispatch => {
+  const response = await csrfFetch(`/api/reviews/`);
   if (response.ok) {
     const reviews = await response.json();
     dispatch(getReviews(reviews));
@@ -37,7 +37,7 @@ const reviewReducer =  (state = initialState, action) => {
   switch(action.type) {
     case GET_REVIEWS_FOR_STORE: {
       newState = {...state};
-      newState.reviews = [...action.reviews];
+      newState.reviews = action.reviews;
       return newState;
     }
     default:

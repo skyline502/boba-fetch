@@ -94,6 +94,15 @@
   margin-top: -40px;
 }
 
+.reviews-box {
+  background-color: white;
+  height: 400px;
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 50px;
+
+}
+
 .selected-shop-info h4 {
   margin-bottom: 0;
 }

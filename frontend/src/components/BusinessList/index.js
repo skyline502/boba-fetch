@@ -4,10 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import DeleteBusinessModal from '../DeleteBusiness';
+import { getStoreReviews } from '../../store/reviews';
 
 const BusinessList = () => {
   const sessionUser = useSelector(state => state.session.user);
   const shops = useSelector(state => state.businesses);
+  const reviews = useSelector(state => state.reviews);
+
+  console.log('revie2ws', reviews);
+
   const dispatch = useDispatch();
   const list = shops.businesses;
   const [selectedShop, setSelectedShop] = useState(shops.businesses[0]);
@@ -22,6 +27,10 @@ const BusinessList = () => {
   useEffect(() => {
     setSelectedShop(list[0]);
   }, []);
+
+  useEffect(() => {
+    dispatch(getStoreReviews());
+  }, [dispatch]);
 
   useEffect(() => {
     setSelectedShop(shop);
@@ -47,6 +56,11 @@ const BusinessList = () => {
           <h4>{selectedShop.city}, {selectedShop.state} {selectedShop.zipCode}</h4>
           <h4>Phone: ({selectedShop.phone.split('').slice(0, 3)}) {selectedShop.phone.split('').slice(3, 6)}-{selectedShop.phone.split('').slice(6)}</h4>
           <p style={{ fontWeight: 'lighter' }}>{selectedShop.description}</p>
+        </div>
+        <div className='selected-shop-gallery-reviews'>
+          <div className='reviews-box'>
+            <button>Reviews</button>
+          </div>
         </div>
       </div>
     );
