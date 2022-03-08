@@ -134,6 +134,7 @@ const CreateBusiness = () => {
             required
           ></textarea>
           <button className='create-shop-button'>Add your Business Now</button>
+          <Link to='/businesses'><button className='create-shop-cancel'>Cancel</button></Link>
         </div>
       </form>
     </div>

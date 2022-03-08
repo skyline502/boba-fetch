@@ -139,7 +139,7 @@ const EditBusiness = ({list}) => {
             required
           ></textarea>
           <button type="submit" className='edit-shop-button'>Save Changes</button>
-          <Link to='/businesses'><button className='cancel-button'>Cancel</button></Link>
+          <Link to='/businesses'><button className='edit-cancel-button'>Cancel</button></Link>
         </div>
       </form>
     </div>
