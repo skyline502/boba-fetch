@@ -11,7 +11,7 @@ const BusinessList = () => {
   const dispatch = useDispatch();
   const list = shops.businesses;
   const [selectedShop, setSelectedShop] = useState(shops.businesses[0]);
-  const [selectedId, setSelectedId] = useState(shops.businesses[0].id);
+  const [selectedId, setSelectedId] = useState('');
   const shop = list.find(shop => shop.id === selectedId);
 
   console.log('onload:', list);
