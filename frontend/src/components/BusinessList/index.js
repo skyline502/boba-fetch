@@ -2,6 +2,7 @@ import './BusinessList.css';
 import { getBusinesses } from '../../store/businesses';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import DeleteBusinessModal from '../DeleteBusiness';
 
 const BusinessList = () => {
   const sessionUser = useSelector(state => state.session.user);
@@ -16,15 +17,14 @@ const BusinessList = () => {
   // console.log('selected: ', selectedShop);
   // console.log('selectedId:', selectedId);
   useEffect(() => {
+    dispatch(getBusinesses());
+    setSelectedShop(list[0]);
+  }, []);
+
+  useEffect(() => {
     const shop = list.find(shop => shop.id === selectedId);
     setSelectedShop(shop);
   }, [selectedId])
-
-
-  useEffect(() => {
-    dispatch(getBusinesses());
-    setSelectedShop(list[0]);
-  }, [dispatch]);
 
   let selected;
 
@@ -37,7 +37,7 @@ const BusinessList = () => {
           {sessionUser && selectedShop.ownerId === sessionUser.id ?
             <div className='delete-edit-buttons'>
               <button className="edit-button">Edit</button>
-              <button className="delete-button">Delete</button>
+              <DeleteBusinessModal businessId={selectedShop.id} />
             </div> : <></>
           }
           <h4>{selectedShop.address}</h4>

@@ -56,7 +56,7 @@
 .selected-shop-info {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
   padding: 20px 20px;
   background-color: white;
@@ -94,20 +94,6 @@
   background-color: #382618;
   cursor: pointer;
   color:#d2c9b7
-}
-
-.delete-button{
-  background-color: #382618;
-  color: white;
-  height: 30px;
-  font-family: Ubuntu;
-  margin-bottom: 10px;
-}
-
-.delete-button:hover {
-  background-color: #d2c9b7;
-  cursor: pointer;
-  color:#382618
 }
 
 .delete-edit-buttons {

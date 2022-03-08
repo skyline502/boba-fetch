@@ -118,59 +118,51 @@ h3 {
 }
 
 .demo-button {
-    font-family: Ubuntu;
-    background-color: #d2c9b7;
-    color: whitesmoke;
-    height: 30px;
-    width: 100px;
-  }
-
-  .demo-button:hover {
-    background-color: #382618;
-    color: #d2c9b7;
-    cursor: pointer;
-  }
-
-  .log-in-button {
-    background-color: #382618;
-    color: white;
-    height: 30px;
-    font-family: Ubuntu;
-  }
-
-  .log-in-button:hover {
-    background-color: #d2c9b7;
-    color: whitesmoke;
-    cursor: pointer;
-  }
-
-  NavLink {
-    text-decoration: none;
-  }
-
-  .menu {
-    background-color: #382618;
-    color: white;
-    height: 30px;
-    font-family: Ubuntu;
-  }
-
-  .menu:hover {
-    background-color: #d2c9b7;
-    color: whitesmoke;
-    cursor: pointer;
-  }
-
-  .add-business {
-    background-color: #382618;
-    color: white;
-    height: 30px;
-    width: 130px;
-    font-family: Ubuntu;
-  }
-
-  .add-business:hover {
-    background-color: #d2c9b7;
-    color: whitesmoke;
-    cursor: pointer;
-  }
+  font-family: Ubuntu;
+  background-color: #d2c9b7;
+  color: whitesmoke;
+  height: 30px;
+  width: 100px;
+}
+.demo-button:hover {
+  background-color: #382618;
+  color: #d2c9b7;
+  cursor: pointer;
+}
+.log-in-button {
+  background-color: #382618;
+  color: white;
+  height: 30px;
+  font-family: Ubuntu;
+}
+.log-in-button:hover {
+  background-color: #d2c9b7;
+  color: whitesmoke;
+  cursor: pointer;
+}
+NavLink {
+  text-decoration: none;
+}
+.menu {
+  background-color: #382618;
+  color: white;
+  height: 30px;
+  font-family: Ubuntu;
+}
+.menu:hover {
+  background-color: #d2c9b7;
+  color: whitesmoke;
+  cursor: pointer;
+}
+.add-business {
+  background-color: #382618;
+  color: white;
+  height: 30px;
+  width: 130px;
+  font-family: Ubuntu;
+}
+.add-business:hover {
+  background-color: #d2c9b7;
+  color: whitesmoke;
+  cursor: pointer;
+}

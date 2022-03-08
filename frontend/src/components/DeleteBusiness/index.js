@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Modal from "../../context/Modal";
 import './DeleteBusiness.css';
 
-const DeleteBusinessModal = () => {
+const DeleteBusinessModal = ({businessId}) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -16,12 +16,12 @@ const DeleteBusinessModal = () => {
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <DeleteBusiness />
+          <DeleteBusiness businessId= {businessId}/>
         </Modal>
       )
-
-
       }
     </>
   )
 }
+
+export default DeleteBusinessModal;

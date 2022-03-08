@@ -5,6 +5,7 @@ import SignUpForm from './components/SignUpForm';
 import SplashPage from './components/SplashPage';
 import BusinessList from './components/BusinessList';
 import CreateBusiness from './components/CreateBusinessForm';
+import Message from './components/Message';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from './store/session';
 import './index.css';
@@ -32,6 +33,9 @@ function App() {
         </Route>
         <Route exact={true} path='/businesses/create'>
           <CreateBusiness />
+        </Route>
+        <Route path='/message'>
+          <Message />
         </Route>
       </Switch>
     </div>

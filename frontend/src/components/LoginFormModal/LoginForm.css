@@ -34,30 +34,6 @@
   background-color: #f3ecdf;
 }
 
-label {
-  font-family: Ubuntu;
-}
-
-/* .log-in-header {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  font-family: Ubuntu;
-  justify-content: space-between;
-  color: #382618;
-  width: 300px;
-  font-size: larger;
-  font-weight: bolder;
-  background-image: url('/public/images/Icon.png');
-  background-position-x: 120%;
-  background-size: 130px;
-  background-repeat: no-repeat;
-  margin-top: 200px;
-} */
-
-p {
-  font-weight: bolder;
-}
 
 .login-input-fields {
   display: flex;

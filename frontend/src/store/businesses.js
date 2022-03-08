@@ -72,6 +72,8 @@ export const deleteBusiness = (businessId) => async dispatch => {
     method: "DELETE",
   });
 
+  console.log('businessId=====:', businessId);
+
   if (response.ok) {
     const data = await response.json();
     dispatch(deleteShop(businessId));
