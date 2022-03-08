@@ -32,7 +32,9 @@ const BusinessList = () => {
   if (selectedShop) {
     selected = (
       <div className='selected-shop'>
-        <img src={selectedShop.businessImg ? selectedShop.businessImg : '/images/logo.png'} style={{ width: 400 }} />
+        <div className='selected-img-box'>
+          <img className='selected-shop-img' src={selectedShop.businessImg ? selectedShop.businessImg : '/images/logo.png'} />
+        </div>
         <div className="selected-shop-info">
           <h1>{selectedShop.name}</h1>
           {sessionUser && selectedShop.ownerId === sessionUser.id ?
@@ -65,10 +67,12 @@ const BusinessList = () => {
         <div className='shop-list'>
           {list.map(shop => (
             <div key={shop.id} className="shop-box">
-              <img
-                src={shop.businessImg ? shop.businessImg : '/images/logo.png'}
-                style={{ width: 200 }}
-              />
+              <div className='shop-img-box'>
+                <img
+                  src={shop.businessImg ? shop.businessImg : '/images/logo.png'}
+                  style={{ width: 200 }}
+                />
+              </div>
               <div className='shop-info'>
                 <h2>{shop.name}</h2>
                 <h6>{shop.address}</h6>

@@ -4,6 +4,35 @@
   font-family: Ubuntu;
 }
 
+.selected-img-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  padding: 20px;
+  background-color: #382618;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
+
+.shop-img-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  padding: 20px;
+  width: 50%;
+  background-color: #382618;
+  border: 1px solid #a39c8e;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
+.selected-shop-img {
+  width: 50%;
+  margin-bottom:2px;
+}
 .shop-list-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -46,7 +75,8 @@
   padding: 0px 20px;
   background-color: white;
   border-radius: 25px;
-  margin-top: -40px;
+  margin-top: -30px;
+  margin-bottom: 20px;
 }
 
 .shop-info h6 {
@@ -61,7 +91,7 @@
   padding: 20px 20px;
   background-color: white;
   border-radius: 25px;
-  margin-top: -90px;
+  margin-top: -40px;
 }
 
 .selected-shop-info h4 {

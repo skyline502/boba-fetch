@@ -81,8 +81,7 @@ router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
 router.put('/:id(\\d+)/edit', validateBusiness, asyncHandler(async (req, res) => {
     const shop = await Business.findByPk(req.params.id);
     const { name, address, city, state, zipCode, phone, description, ownerId, businessImg } = req.body;
-
-
+    shop.update({name, address, city, state, zipCode, phone, description, ownerId, businessImg});
 }));
 
 module.exports = router;

@@ -99,6 +99,17 @@ export const deleteBusiness = (businessId) => async dispatch => {
   return response;
 }
 
+//edit business
+export const editBusiness = (businessId, business) => async dispatch => {
+  const response = await csrfFetch(`/api/businesses/${businessId}/edit`, {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(business)
+  });
+
+  console.log('response......', response);
+}
+
 const sortList = (list) => {
   return list.sort((businessA, businessB) => {
     return businessA.zipCode - businessB.zipCode;
