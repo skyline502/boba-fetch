@@ -30,6 +30,7 @@ const validateBusiness = [
     check('zipCode')
         .exists({ checkFalsy: true })
         .isLength({ min: 5, max: 5})
+        .isNumeric()
         .withMessage('Please enter a valid zipcode'),
     check('phone')
         .exists({ checkFalsy: true })
