@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 const SplashPage = () => {
   const sessionUser = useSelector(state => state.session.user);
-  console.log(sessionUser);
+  // console.log(sessionUser);
 
   if (sessionUser) {
     return (
@@ -41,6 +41,7 @@ const SplashPage = () => {
           </div>
           <Link to='/signup'><button className="splash-sign-up">Sign up now for free!</button></Link>
         </div>
+          <p>REACT REDUX NODEJS EXPRESS POSTGRES SEQUELIZE</p>
       </div>
     </div>
   )

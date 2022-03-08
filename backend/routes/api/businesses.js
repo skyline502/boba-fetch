@@ -51,6 +51,7 @@ router.get('/', asyncHandler(async (req, res) => {
     return res.json(businesses);
 }));
 
+//CREATE BUSINESS
 router.post('/', validateBusiness, asyncHandler(async (req, res) => {
     const { name, address, city, state, zipCode, phone, description, ownerId, businessImg } = req.body;
     const business = await Business.create({
@@ -61,12 +62,25 @@ router.post('/', validateBusiness, asyncHandler(async (req, res) => {
     return res.json({ business });
 }));
 
-router.delete('/:id', asyncHandler(async (req, res) => {
+//DELETE BUSINESS
+router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
     const shop = await Business.findByPk(req.params.id);
-    console.log('is the shop found?:', shop)
+    // console.log('is the shop found?:', shop)
     Business.destroy({where: {id: shop.id}});
     return res.json(shop.id);
 
 }));
+
+//EDIT BUSINESS
+router.get('/:id(\\d+)/edit', asyncHandler(async(req, res) => {
+    const id = req.params.id;
+    const shop = await Business.findByPk(id);
+
+    res.json(shop);
+}))
+// router.put('/:id(\\d+)/edit', validateBusiness, asyncHandler(async (req, res) => {
+//     const shop = await Business.findByPk(req.params.id);
+
+// }));
 
 module.exports = router;
