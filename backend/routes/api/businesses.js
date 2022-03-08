@@ -61,4 +61,12 @@ router.post('/', validateBusiness, asyncHandler(async (req, res) => {
     return res.json({ business });
 }));
 
+router.delete('/:id', asyncHandler(async (req, res) => {
+    const shop = await Business.findByPk(req.params.id);
+    console.log('is the shop found?:', shop)
+    Business.destroy({where: {id: shop.id}});
+    return res.json(shop.id);
+
+}));
+
 module.exports = router;

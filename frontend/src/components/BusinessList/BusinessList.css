@@ -81,3 +81,38 @@
   cursor: pointer;
   color:#382618
 }
+
+.edit-button{
+  background-color: #d2c9b7;
+  color: #382618;
+  height: 30px;
+  font-family: Ubuntu;
+  margin-bottom: 10px;
+}
+
+.edit-button:hover {
+  background-color: #382618;
+  cursor: pointer;
+  color:#d2c9b7
+}
+
+.delete-button{
+  background-color: #382618;
+  color: white;
+  height: 30px;
+  font-family: Ubuntu;
+  margin-bottom: 10px;
+}
+
+.delete-button:hover {
+  background-color: #d2c9b7;
+  cursor: pointer;
+  color:#382618
+}
+
+.delete-edit-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}

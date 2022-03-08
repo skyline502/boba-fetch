@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 
 const GET_LIST = '/api/businesses/GET_LIST';
 const ADD_SHOP = '/api/businesses/ADD_SHOP';
+const DELETE_SHOP = '/api/business/DELETE_SHOP';
 
 
 //actions
@@ -22,6 +23,13 @@ const addShop = (shop) => {
     shop
   }
 };
+
+const deleteShop = (businessId) => {
+  return {
+  type: DELETE_SHOP,
+  businessId
+  }
+}
 
 
 
@@ -53,6 +61,21 @@ export const addBusiness = (shop) => async dispatch => {
     console.log('shop data: ', data)
     dispatch(addShop(data.shop))
     return response;
+  }
+
+  return response;
+}
+
+//destroyBusiness
+export const deleteBusiness = (businessId) => async dispatch => {
+  const response = await csrfFetch(`/api/businesses/${businessId}`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(deleteShop(businessId));
+    return data;
   }
 
   return response;

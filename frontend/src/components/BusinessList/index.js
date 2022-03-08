@@ -7,9 +7,7 @@ const BusinessList = () => {
   const sessionUser = useSelector(state => state.session.user);
   const shops = useSelector(state => state.businesses);
 
-  console.log('user: ', sessionUser)
-
-  console.log('shops', shops);
+  console.log('shops----------->', shops);
   const dispatch = useDispatch();
   const list = shops.businesses;
   const [selectedShop, setSelectedShop] = useState(shops.businesses[0]);
@@ -36,6 +34,12 @@ const BusinessList = () => {
         <img src={selectedShop.businessImg} style={{ width: 400 }} />
         <div className="selected-shop-info">
           <h1>{selectedShop.name}</h1>
+          {selectedShop.ownerId === sessionUser.id ?
+            <div className='delete-edit-buttons'>
+              <button className="edit-button">Edit</button>
+              <button className="delete-button">Delete</button>
+            </div> : <></>
+          }
           <h4>{selectedShop.address}</h4>
           <h4>{selectedShop.city}, {selectedShop.state} {selectedShop.zipCode}</h4>
           <h4>Phone: ({selectedShop.phone.split('').slice(0, 3)}) {selectedShop.phone.split('').slice(3, 6)}-{selectedShop.phone.split('').slice(6)}</h4>
@@ -69,7 +73,7 @@ const BusinessList = () => {
                 <h6>{shop.address}</h6>
                 <h6>{shop.city}, {shop.state} {shop.zipCode}</h6>
                 <h6>Phone: ({shop.phone.split('').slice(0, 3)}) {shop.phone.split('').slice(3, 6)}-{shop.phone.split('').slice(6)}</h6>
-                <div style={{display:'flex', justifyContent:'center', width: '100%'}}>
+                <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
                   <button
                     onClick={() => setSelectedId(shop.id)}
                     className="more-info-button">
