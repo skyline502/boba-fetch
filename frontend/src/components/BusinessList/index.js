@@ -11,13 +11,20 @@ const BusinessList = () => {
   const shops = useSelector(state => state.businesses);
   const reviews = useSelector(state => state.reviews);
 
-  console.log('revie2ws', reviews);
-
   const dispatch = useDispatch();
   const list = shops.businesses;
   const [selectedShop, setSelectedShop] = useState(shops.businesses[0]);
   const [selectedId, setSelectedId] = useState('');
   const shop = list.find(shop => shop.id === selectedId);
+  const AllReviews = reviews.reviews;
+
+  const shopReviews = AllReviews.filter(review => review.businessId === selectedId);
+  console.log('shops...reviews:', shopReviews)
+
+  console.log('all reviews', AllReviews)
+
+
+
 
   console.log('onload:', list);
   useEffect(() => {
@@ -60,6 +67,12 @@ const BusinessList = () => {
         <div className='selected-shop-gallery-reviews'>
           <div className='reviews-box'>
             <button>Reviews</button>
+            {shopReviews.length > 0 ? shopReviews.map(review => (
+              <div className='review-box' key={review.id}>
+                <h1>{review.rating}</h1>
+                <p>{review.review}</p>
+              </div>
+            )) : <h1>no reviews yet!</h1>}
           </div>
         </div>
       </div>

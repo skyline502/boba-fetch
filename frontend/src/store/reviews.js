@@ -1,11 +1,11 @@
 import { csrfFetch } from "./csrf";
 
-const GET_REVIEWS_FOR_STORE = '/api/reviews/:businessId';
+const GET_REVIEWS = '/api/reviews/:businessId';
 
 //actions
 const getReviews = (reviews) => {
   return {
-    type: GET_REVIEWS_FOR_STORE,
+    type: GET_REVIEWS,
     reviews
   }
 };
@@ -35,10 +35,16 @@ const initialState = { reviews: [] };
 const reviewReducer =  (state = initialState, action) => {
   let newState;
   switch(action.type) {
-    case GET_REVIEWS_FOR_STORE: {
-      newState = {...state};
-      newState.reviews = action.reviews;
-      return newState;
+    case GET_REVIEWS: {
+      const allReviews = {};
+      action.reviews.forEach(review => {
+        allReviews[review.id] = review;
+      });
+      return {
+        ...allReviews,
+        ...state,
+        reviews: sortList(action.reviews)
+      };
     }
     default:
       return state;
