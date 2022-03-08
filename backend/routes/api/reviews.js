@@ -19,9 +19,9 @@ const validateReview = [
 ]
 
 //ROUTES
-router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+router.get('/:businessId(\\d+)', asyncHandler(async (req, res) => {
   res.cookie('XSRF-TOKEN', req.csrfToken());
-  const businessId = req.params.id
+  const businessId = req.params.businessId
   const reviews = await Review.findAll({
     where: {
       businessId

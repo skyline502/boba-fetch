@@ -1,5 +1,4 @@
 import { csrfFetch } from "./csrf";
-import { Redirect } from "react-router-dom";
 
 const GET_LIST = '/api/businesses/GET_LIST';
 const ADD_SHOP = '/api/businesses/ADD_SHOP';
