@@ -7,7 +7,7 @@ const BusinessList = () => {
   const sessionUser = useSelector(state => state.session.user);
   const shops = useSelector(state => state.businesses);
 
-  console.log('shops----------->', shops);
+
   const dispatch = useDispatch();
   const list = shops.businesses;
   const [selectedShop, setSelectedShop] = useState(shops.businesses[0]);
@@ -34,7 +34,7 @@ const BusinessList = () => {
         <img src={selectedShop.businessImg} style={{ width: 400 }} />
         <div className="selected-shop-info">
           <h1>{selectedShop.name}</h1>
-          {selectedShop.ownerId === sessionUser.id ?
+          {sessionUser && selectedShop.ownerId === sessionUser.id ?
             <div className='delete-edit-buttons'>
               <button className="edit-button">Edit</button>
               <button className="delete-button">Delete</button>
