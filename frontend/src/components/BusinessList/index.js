@@ -6,13 +6,17 @@ import { useEffect, useState } from 'react';
 const BusinessList = () => {
   const sessionUser = useSelector(state => state.session.user);
   const shops = useSelector(state => state.businesses);
+
+  console.log('user: ', sessionUser)
+
+  console.log('shops', shops);
   const dispatch = useDispatch();
   const list = shops.businesses;
   const [selectedShop, setSelectedShop] = useState(shops.businesses[0]);
   const [selectedId, setSelectedId] = useState('');
 
-  console.log('selected: ', selectedShop);
-  console.log('selectedId:', selectedId);
+  // console.log('selected: ', selectedShop);
+  // console.log('selectedId:', selectedId);
   useEffect(() => {
     const shop = list.find(shop => shop.id === selectedId);
     setSelectedShop(shop);

@@ -56,6 +56,7 @@ router.post('/', validateBusiness, asyncHandler(async (req, res) => {
         name, address, city, state, zipCode, phone, description, ownerId, businessImg
     });
 
+    console.log('does it reach here:', business);
     return res.json({ business });
 }));
 

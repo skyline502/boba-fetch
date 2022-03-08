@@ -30,11 +30,9 @@ const addShop = (shop) => {
 //getBusinesses
 export const getBusinesses = () => async dispatch => {
   const response = await csrfFetch('/api/businesses');
-  console.log('getBusiness res:', response)
   if (response.ok) {
     const list = await response.json();
     dispatch(getList(list));
-    console.log('business list: ', list)
     return list;
   }
 
@@ -83,7 +81,8 @@ const businessReducer = (state = initialState, action) => {
       };
     }
     case ADD_SHOP: {
-
+      newState = {...state};
+      return newState;
     }
     default:
       return state;

@@ -41,6 +41,9 @@ const Navigation = () => {
                 <NavLink to='/businesses'>
                     <button className="menu">Businesses</button>
                 </NavLink>
+                {sessionUser ? <NavLink to='/businesses/create'>
+                    <button className="add-business">Add a Business</button>
+                </NavLink> : <></>}
             </div>
             <div className="search">
                 <input type='text'></input>

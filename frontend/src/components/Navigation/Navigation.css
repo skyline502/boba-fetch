@@ -160,3 +160,17 @@ h3 {
     color: whitesmoke;
     cursor: pointer;
   }
+
+  .add-business {
+    background-color: #382618;
+    color: white;
+    height: 30px;
+    width: 130px;
+    font-family: Ubuntu;
+  }
+
+  .add-business:hover {
+    background-color: #d2c9b7;
+    color: whitesmoke;
+    cursor: pointer;
+  }
