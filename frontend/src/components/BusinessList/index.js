@@ -8,22 +8,22 @@ import DeleteBusinessModal from '../DeleteBusiness';
 const BusinessList = () => {
   const sessionUser = useSelector(state => state.session.user);
   const shops = useSelector(state => state.businesses);
-  console.log('shops............', shops)
-
   const dispatch = useDispatch();
   const list = shops.businesses;
   const [selectedShop, setSelectedShop] = useState(shops.businesses[0]);
-  const [selectedId, setSelectedId] = useState('');
+  const [selectedId, setSelectedId] = useState(shops.businesses[0].id);
+  const shop = list.find(shop => shop.id === selectedId);
 
-  // console.log('selected: ', selectedShop);
-  // console.log('selectedId:', selectedId);
+  console.log('onload:', list);
   useEffect(() => {
     dispatch(getBusinesses());
+  }, [dispatch]);
+
+  useEffect(() => {
     setSelectedShop(list[0]);
   }, []);
 
   useEffect(() => {
-    const shop = list.find(shop => shop.id === selectedId);
     setSelectedShop(shop);
   }, [selectedId])
 
