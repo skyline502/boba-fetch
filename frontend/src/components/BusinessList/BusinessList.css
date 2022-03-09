@@ -159,9 +159,6 @@
 
 .reviews-box {
   display: block;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background-color: white;
   height: auto;
   width: 80%;
@@ -169,7 +166,7 @@
   margin-bottom: 50px;
   border: 1px solid #d2c9b7;
   background-color: #d2c9b7;
-  padding: 20px 20px;
+  padding: 100px 40px;
   overflow-y: scroll;
 }
 
