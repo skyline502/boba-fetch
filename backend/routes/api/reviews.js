@@ -20,22 +20,35 @@ const validateReview = [
 ]
 
 //ROUTES
+//get all reviews
 router.get('/', asyncHandler(async (req, res) => {
   res.cookie('XSRF-TOKEN', req.csrfToken());
   const reviews = await Review.findAll({
     include: User,
   });
-  console.log('review list: ', reviews);
+
   return res.json(reviews);
 }));
 
+//add review
 router.post('/:businessId(\\d+)', validateReview, asyncHandler(async(req, res) => {
   const { userId, businessId, rating, review } = req.body;
-  console.log('the request...:', req.body);
+
   const newReview = await Review.create({ userId, businessId, rating, review });
-  console.log('is review posted:', newReview);
+
   return res.json({newReview});
 
-}))
+}));
+
+//delete review
+router.delete('/:id(\\d+)', asyncHandler(async(req, res) => {
+  const review = await Review.findByPk(req.params.id);
+
+  if (review) {
+    await Review.destroy({ where: { id: review.id } });
+    return res.json(review.id);
+  }
+
+}));
 
 module.exports = router;
