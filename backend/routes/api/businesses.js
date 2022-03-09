@@ -72,15 +72,16 @@ router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
         }
     });
 
+
+
     if (reviews) {
         reviews.forEach(async review => {
-            await review.destroy();
+            Review.destroy({ where: {id: review.id}});
         });
     }
 
 
     await Business.destroy({ where: { id: shop.id } });
-    console.log('all these reviews:', reviews);
     return res.json(shop.id);
 
 }));
