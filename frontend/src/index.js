@@ -10,6 +10,7 @@ import { restoreCSRF, csrfFetch } from './store/csrf';
 import App from './App';
 import * as sessionActions from './store/session';
 import * as businessActions from './store/businesses';
+import * as reviewActions from './store/reviews';
 
 
 import configureStore from './store';
@@ -23,6 +24,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.store = store;
   window.sessionActions = sessionActions;
   window.businessActions = businessActions;
+  window.reviewActions = reviewActions;
 }
 
 
