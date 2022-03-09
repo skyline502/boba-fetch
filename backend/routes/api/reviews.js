@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
-const { Review } = require('../../db/models');
+const { Review, User } = require('../../db/models');
 
 const router = express.Router();
 
@@ -21,7 +21,9 @@ const validateReview = [
 //ROUTES
 router.get('/', asyncHandler(async (req, res) => {
   res.cookie('XSRF-TOKEN', req.csrfToken());
-  const reviews = await Review.findAll();
+  const reviews = await Review.findAll({
+    include: User,
+  });
   console.log('review list: ', reviews);
   return res.json(reviews);
 }));

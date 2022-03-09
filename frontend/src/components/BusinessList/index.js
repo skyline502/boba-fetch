@@ -63,14 +63,26 @@ const BusinessList = () => {
           <h4>{selectedShop.city}, {selectedShop.state} {selectedShop.zipCode}</h4>
           <h4>Phone: ({selectedShop.phone.split('').slice(0, 3)}) {selectedShop.phone.split('').slice(3, 6)}-{selectedShop.phone.split('').slice(6)}</h4>
           <p style={{ fontWeight: 'lighter' }}>{selectedShop.description}</p>
-        </div>
-        <div className='selected-shop-gallery-reviews'>
           <div className='reviews-box'>
-            <button>Reviews</button>
+            <div className='reviews-box-header'>
+              <h1>Reviews</h1>
+              <div>
+                {sessionUser && selectedShop.ownerId !== sessionUser.id && (
+                  <button>Add Review</button>
+                )}
+              </div>
+            </div>
             {shopReviews.length > 0 ? shopReviews.map(review => (
               <div className='review-box' key={review.id}>
-                <h1>{review.rating}</h1>
-                <p>{review.review}</p>
+                <div className='review-profile'>
+                  <img className='review-profile-img' src={review.User.profileImg ? review.User.profileImg : '/images/baby-yoda-eggs.gif'} />
+                  <h6>{review.User.username}</h6>
+                </div>
+                <div className='review-content'>
+                  <h1>{review.rating}</h1>
+                  <h6>Posted on {review.createdAt.split('-').slice(0, 2).join(' ')}</h6>
+                  <p>{review.review}</p>
+                </div>
               </div>
             )) : <h1>no reviews yet!</h1>}
           </div>

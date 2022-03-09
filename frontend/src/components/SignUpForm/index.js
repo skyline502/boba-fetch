@@ -9,7 +9,7 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [profileImg, setProfileImg] = useState('');
+  const [profileImg, setProfileImg] = useState();
   const [validationErrors, setValidationErrors] = useState([]);
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
