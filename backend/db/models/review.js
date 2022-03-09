@@ -21,6 +21,9 @@ module.exports = (sequelize, DataTypes) => {
     review: {
       type: DataTypes.TEXT,
       allowNull: false,
+      validate: {
+        len: [20, 256]
+      }
     }
   }, {});
   Review.associate = function(models) {

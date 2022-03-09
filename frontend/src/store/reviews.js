@@ -42,7 +42,7 @@ export const addReview = (businessId, review) => async dispatch => {
     body: JSON.stringify(review)
   });
 
-  console.log('create review', response);
+  console.log('create reviewssssss', response);
   if (response.ok) {
     const data = await response.json();
     console.log('new review:', data);
@@ -76,6 +76,11 @@ const reviewReducer =  (state = initialState, action) => {
         ...state,
         reviews: sortList(action.reviews)
       };
+    }
+    case CREATE_REVIEW: {
+      newState = {...state};
+      newState[action.review.id] = action.review;
+      return newState;
     }
     default:
       return state;

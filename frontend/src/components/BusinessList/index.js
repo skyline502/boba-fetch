@@ -23,14 +23,7 @@ const BusinessList = () => {
   const AllReviews = reviews.reviews;
 
   const shopReviews = AllReviews.filter(review => review.businessId === selectedId);
-  console.log('shops...reviews:', shopReviews)
 
-  console.log('all reviews', AllReviews)
-  console.log('rating is: ', rating);
-
-
-
-  console.log('onload:', list);
   useEffect(() => {
     dispatch(getBusinesses());
   }, [dispatch]);
@@ -50,24 +43,25 @@ const BusinessList = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     const newReview = { userId: sessionUser.id, businessId: selectedId, rating, review };
-
+    console.log('newReview', newReview)
     setValidationErrors([]);
 
-    let response = await dispatch(addReview(selectedId, newReview))
+    let submission = await dispatch(addReview(selectedId, newReview))
       .catch(async res => {
+        console.log('res....', res)
         const data = await res.json();
-        if(data && data.errors) {
+        console.log(data, 'what is the data...');
+        if (data && data.errors) {
           setValidationErrors(data.errors);
         }
       });
 
-      console.log('does this work?:', response);
-      if (response) {
-        dispatch(getStoreReviews());
-        setSelectedId('');
-        setRating(1);
-        setReview('');
-      }
+
+    if (submission) {
+      dispatch(getStoreReviews());
+      setRating(1);
+      setReview('');
+    }
 
   }
 
@@ -96,28 +90,33 @@ const BusinessList = () => {
               <h1>Reviews</h1>
               <div>
                 {sessionUser && selectedShop.ownerId !== sessionUser.id && (
-                  <div className='add-review-container'>
-                    <div className='review-form-container'>
-                      <form className='review-form' onSubmit={onSubmit}>
-                        <select
-                          value={rating}
-                          onChange={e => setRating(e.target.value)}
-                        >
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                        </select>
-                        <textarea
-                          value={review}
-                          onChange={e => setReview(e.target.value)}
-                          name="review"
-                          placeholder='Please Leave a Review'
-                        ></textarea>
-                        <button type="submit" className='add-review'>Add Review</button>
-                      </form>
+                  <div className='review-form-container'>
+                    <div className='review-errors'>
+                      <ul>
+                        {validationErrors.map(error => (
+                          <li style={{color:'red', fontWeight: 'bolder'}} key={error}>{error}</li>
+                        ))}
+                      </ul>
                     </div>
+                    <form className='review-form' onSubmit={onSubmit}>
+                      <select
+                        value={rating}
+                        onChange={e => setRating(e.target.value)}
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                      <textarea
+                        value={review}
+                        onChange={e => setReview(e.target.value)}
+                        name="review"
+                        placeholder='Please Leave a Review'
+                      ></textarea>
+                      <button type="submit" className='add-review'>Add Review</button>
+                    </form>
                   </div>
                 )}
               </div>
