@@ -32,27 +32,29 @@ const Navigation = () => {
     }
 
     return (
-        <nav className="nav-bar">
-            <div className="logo">
-                <h3>Boba fetch!</h3>
-                <NavLink to='/'>
-                    <img src="/images/Icon.png"></img>
-                </NavLink>
-                <NavLink to='/businesses'>
-                    <button className="menu">Businesses</button>
-                </NavLink>
-                {sessionUser ? <NavLink to='/businesses/create'>
-                    <button className="add-business">Add a Business</button>
-                </NavLink> : <></>}
-            </div>
-            <div className="search">
-                <input type='text'></input>
-                <img src='/images/search.png' className="search-img"></img>
-            </div>
-            <div className="session-box">
-                {sessionLinks}
-            </div>
-        </nav>
+        <div className="nav-container">
+            <nav className="nav-bar">
+                <div className="logo">
+                    <h3>Boba fetch!</h3>
+                    <NavLink to='/'>
+                        <img src="/images/Icon.png"></img>
+                    </NavLink>
+                    <NavLink to='/businesses'>
+                        <button className="menu">Businesses</button>
+                    </NavLink>
+                    {sessionUser ? <NavLink to='/businesses/create'>
+                        <button className="add-business">Add a Business</button>
+                    </NavLink> : <></>}
+                </div>
+                <div className="search">
+                    <input type='text'></input>
+                    <img src='/images/search.png' className="search-img"></img>
+                </div>
+                <div className="session-box">
+                    {sessionLinks}
+                </div>
+            </nav>
+        </div>
     )
 }
 

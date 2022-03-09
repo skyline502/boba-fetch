@@ -68,7 +68,7 @@ const BusinessList = () => {
               <h1>Reviews</h1>
               <div>
                 {sessionUser && selectedShop.ownerId !== sessionUser.id && (
-                  <button>Add Review</button>
+                  <button className='add-review'>Add Review</button>
                 )}
               </div>
             </div>
@@ -79,7 +79,7 @@ const BusinessList = () => {
                   <h6>{review.User.username}</h6>
                 </div>
                 <div className='review-content'>
-                  <h1>{review.rating}</h1>
+                  <img src={`/images/${review.rating}.png`}></img>
                   <h6>Posted on {review.createdAt.split('-').slice(0, 2).join(' ')}</h6>
                   <p>{review.review}</p>
                 </div>

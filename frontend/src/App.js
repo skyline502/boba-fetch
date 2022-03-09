@@ -26,7 +26,7 @@ function App() {
   }, [])
 
   return isLoaded && (
-    <div>
+    <div className='app-container'>
       <Navigation />
       <Switch>
         <Route exact={true} path='/'>

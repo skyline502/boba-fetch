@@ -7,10 +7,14 @@
     align-items: center;
     height: 75px;
     border-bottom: 1px solid #382618;
-    width: 100vw;
-    background-color: whitesmoke;
+    width: 100%;
     position: sticky;
     top: 0;
+  }
+
+.nav-container {
+  background-color: whitesmoke;
+  width: 100vw;
 }
 
 .logo img {

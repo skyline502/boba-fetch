@@ -11,3 +11,17 @@ body {
      height: 100%;
      box-sizing: border-box;
  }
+
+ html {
+     height: 100%;
+     box-sizing: border-box;
+     background-color: #f3ecdf;
+     width: 100%;
+ }
+
+ .app-container {
+     display: block;
+     box-sizing: border-box;
+     width: 100%;
+     background-color: whitesmoke;
+ }
