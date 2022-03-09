@@ -125,7 +125,7 @@ const BusinessList = () => {
                 <div className='review-profile'>
                   <img className='review-profile-img' src={review.User.profileImg ? review.User.profileImg : '/images/baby-yoda-eggs.gif'} />
                   <h6>{review.User.username}</h6>
-                  {review.User.id === sessionUser.id && (
+                  {sessionUser && review.User.id === sessionUser.id && (
                     <button className='delete-review'>Delete Review</button>
                   )}
                 </div>
