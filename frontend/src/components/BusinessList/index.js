@@ -43,14 +43,11 @@ const BusinessList = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     const newReview = { userId: sessionUser.id, businessId: selectedId, rating, review };
-    console.log('newReview', newReview)
     setValidationErrors([]);
 
     let submission = await dispatch(addReview(selectedId, newReview))
       .catch(async res => {
-        console.log('res....', res)
         const data = await res.json();
-        console.log(data, 'what is the data...');
         if (data && data.errors) {
           setValidationErrors(data.errors);
         }
@@ -59,6 +56,7 @@ const BusinessList = () => {
 
     if (submission) {
       dispatch(getStoreReviews());
+      setSelectedId('');
       setRating(1);
       setReview('');
     }
@@ -86,18 +84,15 @@ const BusinessList = () => {
           <h4>Phone: ({selectedShop.phone.split('').slice(0, 3)}) {selectedShop.phone.split('').slice(3, 6)}-{selectedShop.phone.split('').slice(6)}</h4>
           <p style={{ fontWeight: 'lighter' }}>{selectedShop.description}</p>
           <div className='reviews-box'>
-            <div className='reviews-box-header'>
-              <h1>Reviews</h1>
-              <div>
-                {sessionUser && selectedShop.ownerId !== sessionUser.id && (
+          <div className='reviews-box-header'>
+            <h1>Reviews</h1>
+            <div>
+              {sessionUser && selectedShop.ownerId !== sessionUser.id && (
+                <div className='add-review-container'>
                   <div className='review-form-container'>
-                    <div className='review-errors'>
-                      <ul>
-                        {validationErrors.map(error => (
-                          <li style={{color:'red', fontWeight: 'bolder'}} key={error}>{error}</li>
-                        ))}
-                      </ul>
-                    </div>
+                    {validationErrors.map(error => (
+                      <li key={error} style={{color: 'red', fontWeight: 'bolder'}}>{error}</li>
+                    ))}
                     <form className='review-form' onSubmit={onSubmit}>
                       <select
                         value={rating}
@@ -118,9 +113,10 @@ const BusinessList = () => {
                       <button type="submit" className='add-review'>Add Review</button>
                     </form>
                   </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
+          </div>
             {shopReviews.length > 0 ? shopReviews.map(review => (
               <div className='review-box' key={review.id}>
                 <div className='review-profile'>
