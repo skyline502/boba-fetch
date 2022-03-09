@@ -236,3 +236,17 @@ textarea {
   border-radius: 15px;
   margin-bottom: 2px;
 }
+
+.delete-review {
+  background-color: #381818;
+  color: white;
+  height: 50px;
+  font-family: Ubuntu;
+  margin-bottom: 10px;
+}
+
+.delete-review:hover {
+  background-color: #d2c9b7;
+  cursor: pointer;
+  color: #382618;
+}

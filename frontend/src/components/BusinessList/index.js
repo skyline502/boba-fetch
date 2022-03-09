@@ -94,9 +94,12 @@ const BusinessList = () => {
                       <li key={error} style={{color: 'red', fontWeight: 'bolder'}}>{error}</li>
                     ))}
                     <form className='review-form' onSubmit={onSubmit}>
+                      <label htmlFor='rating'>How many stars?</label>
+                      <img src='/images/0.png'></img>
                       <select
                         value={rating}
                         onChange={e => setRating(e.target.value)}
+                        name="rating"
                       >
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -122,6 +125,9 @@ const BusinessList = () => {
                 <div className='review-profile'>
                   <img className='review-profile-img' src={review.User.profileImg ? review.User.profileImg : '/images/baby-yoda-eggs.gif'} />
                   <h6>{review.User.username}</h6>
+                  {review.User.id === sessionUser.id && (
+                    <button className='delete-review'>Delete Review</button>
+                  )}
                 </div>
                 <div className='review-content'>
                   <img src={`/images/${review.rating}.png`}></img>

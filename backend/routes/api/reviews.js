@@ -14,7 +14,8 @@ const validateReview = [
     .withMessage('Please select a rating between 1 and 5'),
   check('review')
     .exists({ checkFalsy: true })
-    .withMessage('Please leave a review'),
+    .isLength({ min: 20, max: 256 })
+    .withMessage('Please leave a review between 20 to 256 characters long.'),
   handleValidationErrors
 ]
 
