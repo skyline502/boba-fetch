@@ -18,11 +18,25 @@ const BusinessList = () => {
   const [rating, setRating] = useState(1);
   const [review, setReview] = useState('');
   const [message, setMessage] = useState('Welcome to Boba Fetch!');
+  const [averageRating, setAverageRating] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
   const shop = list.find(shop => shop.id === selectedId);
   const AllReviews = reviews.reviews;
 
   const shopReviews = AllReviews.filter(review => review.businessId === selectedId);
+
+  useEffect(() => {
+    if (shopReviews) {
+      let sum = 0;
+      shopReviews.forEach(review => {
+        sum += review.rating;
+      })
+      let avg = sum / shopReviews.length;
+      setAverageRating(avg);
+      console.log('average rating for store:', selectedId, averageRating)
+    }
+  }, [selectedId, reviews, dispatch])
+
 
   useEffect(() => {
     dispatch(getBusinesses());
@@ -78,47 +92,52 @@ const BusinessList = () => {
               <DeleteBusinessModal businessId={selectedShop.id} />
             </div> : <></>
           }
-          <h4>{selectedShop.address}</h4>
-          <h4>{selectedShop.city}, {selectedShop.state} {selectedShop.zipCode}</h4>
-          <h4>Phone: ({selectedShop.phone.split('').slice(0, 3)}) {selectedShop.phone.split('').slice(3, 6)}-{selectedShop.phone.split('').slice(6)}</h4>
-          <p style={{ fontWeight: 'lighter' }}>{selectedShop.description}</p>
-          <div className='reviews-box'>
-          <div className='reviews-box-header'>
-            <h1>Reviews</h1>
-            <div>
-              {sessionUser && selectedShop.ownerId !== sessionUser.id && (
-                <div className='add-review-container'>
-                  <div className='review-form-container'>
-                    {validationErrors.map(error => (
-                      <li key={error} style={{color: 'red', fontWeight: 'bolder'}}>{error}</li>
-                    ))}
-                    <form className='review-form' onSubmit={onSubmit}>
-                      <label htmlFor='rating'>How many stars?</label>
-                      <img src='/images/0.png'></img>
-                      <select
-                        value={rating}
-                        onChange={e => setRating(e.target.value)}
-                        name="rating"
-                      >
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                      </select>
-                      <textarea
-                        value={review}
-                        onChange={e => setReview(e.target.value)}
-                        name="review"
-                        placeholder='Please Leave a Review'
-                      ></textarea>
-                      <button type="submit" className='add-review'>Add Review</button>
-                    </form>
-                  </div>
-                </div>
-              )}
-            </div>
+          <div className='average-rating'>
+            <h6>{averageRating ? (<img src={`/images/${Math.ceil(averageRating)}.png`} />) : 'No ratings yet!'}</h6>
           </div>
+          <div className='selected-shop-details'>
+            <h4>{selectedShop.address}</h4>
+            <h4>{selectedShop.city}, {selectedShop.state} {selectedShop.zipCode}</h4>
+            <h4>Phone: ({selectedShop.phone.split('').slice(0, 3)}) {selectedShop.phone.split('').slice(3, 6)}-{selectedShop.phone.split('').slice(6)}</h4>
+            <p style={{ fontWeight: 'lighter' }}>{selectedShop.description}</p>
+          </div>
+          <div className='reviews-box'>
+            <div className='reviews-box-header'>
+              <h1>Reviews</h1>
+              <div>
+                {sessionUser && selectedShop.ownerId !== sessionUser.id && (
+                  <div className='add-review-container'>
+                    <div className='review-form-container'>
+                      {validationErrors.map(error => (
+                        <li key={error} style={{ color: 'red', fontWeight: 'bolder' }}>{error}</li>
+                      ))}
+                      <form className='review-form' onSubmit={onSubmit}>
+                        <label htmlFor='rating'>How many stars?</label>
+                        <img src='/images/0.png'></img>
+                        <select
+                          value={rating}
+                          onChange={e => setRating(e.target.value)}
+                          name="rating"
+                        >
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                        </select>
+                        <textarea
+                          value={review}
+                          onChange={e => setReview(e.target.value)}
+                          name="review"
+                          placeholder='Please Leave a Review'
+                        ></textarea>
+                        <button type="submit" className='add-review'>Add Review</button>
+                      </form>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
             {shopReviews.length > 0 ? shopReviews.map(review => (
               <div className='review-box' key={review.id}>
                 <div className='review-profile'>
@@ -134,7 +153,7 @@ const BusinessList = () => {
                   <p>{review.review}</p>
                 </div>
               </div>
-            )) : <h1>no reviews yet!</h1>}
+            )) : <h4 className='no-reviews'>no reviews yet!</h4>}
           </div>
         </div>
       </div>

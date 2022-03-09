@@ -8,11 +8,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px;
+  height: auto;
   padding: 20px;
+  width: 85%;
+  height: 150px;
   background-color: #382618;
   border-radius: 15px;
   margin-top: 10px;
+}
+
+.selected-shop-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+}
+
+.selected-img-box img {
+  border-radius: 15px;
+  max-height: 120px;
+  width: auto;
 }
 
 
@@ -27,6 +42,11 @@
   border: 1px solid #a39c8e;
   border-radius: 15px;
   margin-top: 10px;
+  height: auto;
+}
+
+.shop-img-box img {
+  border-radius: 15px;
 }
 
 .selected-shop-img {
@@ -47,12 +67,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  margin-left: 40px;
+}
+
+.average-rating {
+  color: red;
+  height: 30px;
 }
 
 .shop-list {
   overflow-y: scroll;
   height: 100%;
-  padding: 0px 100px;
   width: 100%;
 }
 
@@ -71,7 +96,7 @@
 .shop-info {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   width: 75%;
   padding: 0px 20px;
   background-color: white;
@@ -155,16 +180,18 @@
   color: #382618;
 }
 
+
+
+
 .reviews-box {
   display: block;
   background-color: white;
   height: auto;
   width: 80%;
   border-radius: 15px;
-  margin-bottom: 50px;
   border: 1px solid #d2c9b7;
   background-color: #d2c9b7;
-  padding: 100px 40px;
+  padding: 40px 40px;
   overflow-y: scroll;
   box-sizing: border-box;
 }
@@ -180,7 +207,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 20px;
   background-color: whitesmoke;
   width: 98%;
   height: auto;
@@ -194,7 +220,7 @@
   background-color: whitesmoke;
   width: 98%;
   border-radius: 15px;
-  margin: 20px;
+  margin: 20px 0px;
 }
 
 .review-profile {
@@ -202,8 +228,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-right: 1px solid #382618;
+  border-right: 1px solid #d2c9b7;
   padding: 20px;
+  height: 100%;
 }
 
 .review-profile-img {
@@ -249,4 +276,9 @@ textarea {
   background-color: #d2c9b7;
   cursor: pointer;
   color: #382618;
+}
+
+.no-reviews {
+  align-self: center;
+  margin-left: 10px;
 }
