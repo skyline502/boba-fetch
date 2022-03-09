@@ -1,29 +1,28 @@
-import './DeleteBusiness.css';
+import './DeleteReview.css';
 import { useHistory, NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { deleteBusiness, getBusinesses } from '../../store/businesses';
-import './DeleteBusiness.css';
+import { deleteAReview, getStoreReviews } from '../../store/reviews';
 
-const DeleteBusiness = ({ businessId }) => {
+
+const DeleteReview = ({ reviewId }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const onSubmit = async e => {
     e.preventDefault();
-    let deleted = await dispatch(deleteBusiness(businessId));
+    let deleted = await dispatch(deleteAReview(reviewId));
 
 
 
     if (deleted) {
-      dispatch(getBusinesses());
-      history.push('/message');
+      dispatch(getStoreReviews());
     }
   }
 
   return (
     <div className='delete-form-container'>
       <form onSubmit={onSubmit} className='delete-form'>
-        <p style={{ fontWeight: 'bolder' }}>Are you sure you want to Delete this Business?</p>
+        <p style={{ fontWeight: 'bolder' }}>Are you sure you want to Delete this Review?</p>
         <div className='yes-no-buttons'>
           <button type="submit" className='yes-button'>Yes</button>
         </div>
@@ -32,4 +31,4 @@ const DeleteBusiness = ({ businessId }) => {
   )
 };
 
-export default DeleteBusiness;
+export default DeleteReview;

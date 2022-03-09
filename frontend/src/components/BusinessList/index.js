@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import DeleteBusinessModal from '../DeleteBusiness';
-import { getStoreReviews, addReview } from '../../store/reviews';
+import DeleteReviewModal from '../DeleteReview';
+import { getStoreReviews, addReview, deleteAReview } from '../../store/reviews';
 
 const BusinessList = () => {
   const sessionUser = useSelector(state => state.session.user);
   const shops = useSelector(state => state.businesses);
   const reviews = useSelector(state => state.reviews);
-
   const dispatch = useDispatch();
   const list = shops.businesses;
   const [selectedShop, setSelectedShop] = useState(shops.businesses[0]);
@@ -125,7 +125,7 @@ const BusinessList = () => {
                   <img className='review-profile-img' src={review.User.profileImg ? review.User.profileImg : '/images/baby-yoda-eggs.gif'} />
                   <h6>{review.User.username}</h6>
                   {sessionUser && review.User.id === sessionUser.id && (
-                    <button className='delete-review'>Delete Review</button>
+                    <DeleteReviewModal reviewId={review.id} />
                   )}
                 </div>
                 <div className='review-content'>
