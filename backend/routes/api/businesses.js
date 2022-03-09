@@ -65,21 +65,18 @@ router.post('/', validateBusiness, asyncHandler(async (req, res) => {
 //DELETE BUSINESS
 router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
     const shop = await Business.findByPk(req.params.id);
-    // console.log('is the shop found?:', shop)
+
     const reviews = await Review.findAll({
         where: {
             businessId: req.params.id
         }
     });
 
-
-
     if (reviews) {
         reviews.forEach(async review => {
             Review.destroy({ where: {id: review.id}});
         });
     }
-
 
     await Business.destroy({ where: { id: shop.id } });
     return res.json(shop.id);
