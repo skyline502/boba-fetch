@@ -70,7 +70,7 @@ export const addBusiness = (shop) => async dispatch => {
     body: JSON.stringify(shop)
   });
 
-  console.log('create shop:', response);
+
   if (response.ok) {
     const data = await response.json();
     console.log('shop data: ', data)
@@ -87,7 +87,7 @@ export const deleteBusiness = (businessId) => async dispatch => {
     method: "DELETE",
   });
 
-  console.log('businessId=====:', businessId);
+
 
   if (response.ok) {
     const data = await response.json();
@@ -147,7 +147,7 @@ const businessReducer = (state = initialState, action) => {
     }
     case EDIT_SHOP: {
       newState = {...state};
-      newState[action.businessId] = action.business;
+      newState[action.shop.id] = action.shop;
       return newState;
     }
     default:

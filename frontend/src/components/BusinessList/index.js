@@ -77,7 +77,7 @@ const BusinessList = () => {
           <h1>{selectedShop.name}</h1>
           {sessionUser && selectedShop.ownerId === sessionUser.id ?
             <div className='delete-edit-buttons'>
-              <Link to={`/businesses/${selectedShop.id}/edit`}><button className="edit-button">Edit</button></Link>
+              <Link to={`/businesses/${selectedShop.id}/edit`}><button onClick={() => dispatch(getBusinesses())} className="edit-button">Edit</button></Link>
               <DeleteBusinessModal businessId={selectedShop.id} />
             </div> : <></>
           }

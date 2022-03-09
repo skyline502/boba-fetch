@@ -8,9 +8,9 @@ import './EditBusiness.css';
 const EditBusiness = ({list}) => {
   const {id} = useParams();
   const sessionUser = useSelector(state => state.session.user);
-  console.log('shop list:', list);
-  console.log('id: ', id)
-  const shop = list[id];
+  const shops = useSelector(state => state.businesses);
+
+  const shop = shops[id];
   //states
   const [name, setName] = useState(shop.name);
   const [address, setAddress] = useState(shop.address);
@@ -27,8 +27,7 @@ const EditBusiness = ({list}) => {
 
 
   useEffect(async () => {
-    let businesses = await dispatch(getBusinesses());
-    return list = businesses;
+    dispatch(getBusinesses());
   }, [dispatch])
 
 
@@ -53,9 +52,9 @@ const EditBusiness = ({list}) => {
         }
       });
 
-    console.log(shop, 'line56')
 
     if (shop.id) {
+      dispatch(getBusinesses());
       history.push('/businesses');
       console.log('does this run?');
     }
