@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import DeleteBusinessModal from '../DeleteBusiness';
-import { getStoreReviews } from '../../store/reviews';
+import { getStoreReviews, addReview } from '../../store/reviews';
 
 const BusinessList = () => {
   const sessionUser = useSelector(state => state.session.user);
@@ -15,6 +15,10 @@ const BusinessList = () => {
   const list = shops.businesses;
   const [selectedShop, setSelectedShop] = useState(shops.businesses[0]);
   const [selectedId, setSelectedId] = useState('');
+  const [rating, setRating] = useState(1);
+  const [review, setReview] = useState('');
+  const [message, setMessage] = useState('Welcome to Boba Fetch!');
+  const [validationErrors, setValidationErrors] = useState([]);
   const shop = list.find(shop => shop.id === selectedId);
   const AllReviews = reviews.reviews;
 
@@ -22,7 +26,7 @@ const BusinessList = () => {
   console.log('shops...reviews:', shopReviews)
 
   console.log('all reviews', AllReviews)
-
+  console.log('rating is: ', rating);
 
 
 
@@ -42,6 +46,30 @@ const BusinessList = () => {
   useEffect(() => {
     setSelectedShop(shop);
   }, [selectedId])
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const newReview = { userId: sessionUser.id, businessId: selectedId, rating, review };
+
+    setValidationErrors([]);
+
+    let response = await dispatch(addReview(selectedId, newReview))
+      .catch(async res => {
+        const data = await res.json();
+        if(data && data.errors) {
+          setValidationErrors(data.errors);
+        }
+      });
+
+      console.log('does this work?:', response);
+      if (response) {
+        dispatch(getStoreReviews());
+        setSelectedId('');
+        setRating(1);
+        setReview('');
+      }
+
+  }
 
   let selected;
 
@@ -68,7 +96,29 @@ const BusinessList = () => {
               <h1>Reviews</h1>
               <div>
                 {sessionUser && selectedShop.ownerId !== sessionUser.id && (
-                  <button className='add-review'>Add Review</button>
+                  <div className='add-review-container'>
+                    <div className='review-form-container'>
+                      <form className='review-form' onSubmit={onSubmit}>
+                        <select
+                          value={rating}
+                          onChange={e => setRating(e.target.value)}
+                        >
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                        </select>
+                        <textarea
+                          value={review}
+                          onChange={e => setReview(e.target.value)}
+                          name="review"
+                          placeholder='Please Leave a Review'
+                        ></textarea>
+                        <button type="submit" className='add-review'>Add Review</button>
+                      </form>
+                    </div>
+                  </div>
                 )}
               </div>
             </div>

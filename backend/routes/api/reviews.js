@@ -28,4 +28,13 @@ router.get('/', asyncHandler(async (req, res) => {
   return res.json(reviews);
 }));
 
+router.post('/:businessId(\\d+)', validateReview, asyncHandler(async(req, res) => {
+  const { userId, businessId, rating, review } = req.body;
+
+  const newReview = await Review.create({ userId, businessId, rating, review });
+  console.log('is review posted:', newReview);
+  return res.json({newReview});
+
+}))
+
 module.exports = router;
