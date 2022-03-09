@@ -126,6 +126,7 @@ const BusinessList = () => {
                           <option value="5">5</option>
                         </select>
                         <textarea
+                          className='review-text'
                           value={review}
                           onChange={e => setReview(e.target.value)}
                           name="review"

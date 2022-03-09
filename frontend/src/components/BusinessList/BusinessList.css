@@ -248,6 +248,8 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  width: auto;
+  box-sizing: border-box;
 }
 
 .review-form {
