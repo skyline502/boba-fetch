@@ -56,7 +56,6 @@ const BusinessList = () => {
 
     if (submission) {
       dispatch(getStoreReviews());
-      setSelectedId('');
       setRating(1);
       setReview('');
     }
