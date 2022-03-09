@@ -158,18 +158,18 @@
 }
 
 .reviews-box {
-  display: flex;
+  display: block;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: white;
   height: auto;
-  width: 100%;
+  width: 80%;
   border-radius: 15px;
   margin-bottom: 50px;
   border: 1px solid #d2c9b7;
   background-color: #d2c9b7;
-  padding: 100px 0;
+  padding: 20px 20px;
   overflow-y: scroll;
 }
 
@@ -182,11 +182,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30px;
-  margin-top: 0;
+  margin: 20px;
   background-color: whitesmoke;
-  width: 74%;
-  height: 200px;
+  width: 98%;
+  height: auto;
   border-radius: 15px;
 }
 
@@ -195,9 +194,9 @@
   justify-content: flex-start;
   align-items: center;
   background-color: whitesmoke;
-  width: 80%;
+  width: 98%;
   border-radius: 15px;
-  margin: 5px;
+  margin: 20px;
 }
 
 .review-profile {
@@ -233,4 +232,10 @@
   justify-content: center;
   width: 500px;
   background-color: whitesmoke;
+}
+
+textarea {
+  border: 2mm ridge whitesmoke;
+  border-radius: 15px;
+  margin-bottom: 2px;
 }

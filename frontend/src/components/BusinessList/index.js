@@ -56,18 +56,18 @@ const BusinessList = () => {
     let response = await dispatch(addReview(selectedId, newReview))
       .catch(async res => {
         const data = await res.json();
-        if(data && data.errors) {
+        if (data && data.errors) {
           setValidationErrors(data.errors);
         }
       });
 
-      console.log('does this work?:', response);
-      if (response) {
-        dispatch(getStoreReviews());
-        setSelectedId('');
-        setRating(1);
-        setReview('');
-      }
+    console.log('does this work?:', response);
+    if (response) {
+      dispatch(getStoreReviews());
+      setSelectedId('');
+      setRating(1);
+      setReview('');
+    }
 
   }
 
@@ -92,36 +92,36 @@ const BusinessList = () => {
           <h4>Phone: ({selectedShop.phone.split('').slice(0, 3)}) {selectedShop.phone.split('').slice(3, 6)}-{selectedShop.phone.split('').slice(6)}</h4>
           <p style={{ fontWeight: 'lighter' }}>{selectedShop.description}</p>
           <div className='reviews-box'>
-            <div className='reviews-box-header'>
-              <h1>Reviews</h1>
-              <div>
-                {sessionUser && selectedShop.ownerId !== sessionUser.id && (
-                  <div className='add-review-container'>
-                    <div className='review-form-container'>
-                      <form className='review-form' onSubmit={onSubmit}>
-                        <select
-                          value={rating}
-                          onChange={e => setRating(e.target.value)}
-                        >
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                        </select>
-                        <textarea
-                          value={review}
-                          onChange={e => setReview(e.target.value)}
-                          name="review"
-                          placeholder='Please Leave a Review'
-                        ></textarea>
-                        <button type="submit" className='add-review'>Add Review</button>
-                      </form>
-                    </div>
+          <div className='reviews-box-header'>
+            <h1>Reviews</h1>
+            <div>
+              {sessionUser && selectedShop.ownerId !== sessionUser.id && (
+                <div className='add-review-container'>
+                  <div className='review-form-container'>
+                    <form className='review-form' onSubmit={onSubmit}>
+                      <select
+                        value={rating}
+                        onChange={e => setRating(e.target.value)}
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                      <textarea
+                        value={review}
+                        onChange={e => setReview(e.target.value)}
+                        name="review"
+                        placeholder='Please Leave a Review'
+                      ></textarea>
+                      <button type="submit" className='add-review'>Add Review</button>
+                    </form>
                   </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
+          </div>
             {shopReviews.length > 0 ? shopReviews.map(review => (
               <div className='review-box' key={review.id}>
                 <div className='review-profile'>
