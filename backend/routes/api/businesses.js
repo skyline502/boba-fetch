@@ -5,7 +5,7 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { Business } = require('../../db/models');
+const { Business, Review } = require('../../db/models');
 
 const router = express.Router();
 
@@ -29,7 +29,7 @@ const validateBusiness = [
         .withMessage('Please enter a state.'),
     check('zipCode')
         .exists({ checkFalsy: true })
-        .isLength({ min: 5, max: 5})
+        .isLength({ min: 5, max: 5 })
         .isNumeric()
         .withMessage('Please enter a valid zipcode'),
     check('phone')
@@ -66,7 +66,21 @@ router.post('/', validateBusiness, asyncHandler(async (req, res) => {
 router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
     const shop = await Business.findByPk(req.params.id);
     // console.log('is the shop found?:', shop)
-    Business.destroy({where: {id: shop.id}});
+    const reviews = await Review.findAll({
+        where: {
+            businessId: req.params.id
+        }
+    });
+
+    if (reviews) {
+        reviews.forEach(async review => {
+            await review.destroy();
+        });
+    }
+
+
+    await Business.destroy({ where: { id: shop.id } });
+    console.log('all these reviews:', reviews);
     return res.json(shop.id);
 
 }));
@@ -81,7 +95,7 @@ router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
 router.put('/:id(\\d+)/edit', validateBusiness, asyncHandler(async (req, res) => {
     const shop = await Business.findByPk(req.params.id);
     const { name, address, city, state, zipCode, phone, description, ownerId, businessImg } = req.body;
-    const data = await shop.update({name, address, city, state, zipCode, phone, description, ownerId, businessImg});
+    const data = await shop.update({ name, address, city, state, zipCode, phone, description, ownerId, businessImg });
     console.log('update response', data);
     return res.json(data);
 }));

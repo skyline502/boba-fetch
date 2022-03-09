@@ -59,7 +59,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   Business.associate = function(models) {
-    Business.belongsTo(models.User, { foreignKey: 'ownerId', onDelete: 'cascade', foreignKeyConstraint: true });
+    Business.belongsTo(models.User, { foreignKey: 'ownerId', onDelete: 'CASCADE' });
+    Business.hasMany(models.Review, { foreignKey: 'businessId', onDelete: 'CASCADE'});
   };
   return Business;
 };
