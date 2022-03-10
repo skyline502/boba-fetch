@@ -60,11 +60,13 @@ input {
   height: 30px;
 }
 
-textarea {
+.create-business-input-fields textarea {
+  border: 1mm ridge whitesmoke;
+  border-radius: 15px;
   margin-top: 20px;
   margin-left: 10px;
   height: 100px;
-  width: 300px;
+  width: 88%;
 }
 
 .create-shop-cancel {

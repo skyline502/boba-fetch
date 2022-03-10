@@ -77,9 +77,11 @@ input {
   width: 400px;
 }
 
-textarea {
+.edit-business-input-fields textarea {
+  border: 1mm ridge whitesmoke;
+  border-radius: 15px;
   margin-top: 20px;
   margin-left: 10px;
   height: 100px;
-  width: 400px;
+  width: 88%;
 }
