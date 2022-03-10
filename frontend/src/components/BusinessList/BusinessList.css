@@ -97,10 +97,6 @@
   transition-duration: 0.5s;
 }
 
-.shop-box:hover {
-
-}
-
 .shop-info {
   display: flex;
   flex-direction: column;
