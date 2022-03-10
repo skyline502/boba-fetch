@@ -19,7 +19,7 @@ const Footer = () => {
                 <div className='pop-up-button' onClick={() => setShow(!show)}>
                     ABOUT
                 </div>
-                <div className={`popup-box ${display}`}>
+                <div className={`popup-box ${display}`} onMouseLeave={() => setShow(!show)}>
                     <a href='https://github.com/skyline502'>GitHub: Skyline502</a>
                     <img src='https://avatars.githubusercontent.com/u/93230132?v=4' />
                 </div>
