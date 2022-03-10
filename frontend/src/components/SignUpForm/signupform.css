@@ -102,11 +102,16 @@ label {
   margin-left: 10px;
 }
 
-div.cancel Link {
+.cancel Link {
   text-decoration: none;
 }
 
-a {
+.cancel a:hover {
+  color: white;
+}
+
+
+.cancel a {
   color: #382618;
 }
 
