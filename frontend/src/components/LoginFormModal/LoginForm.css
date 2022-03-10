@@ -64,6 +64,7 @@
   color: white;
   height: 50px;
   width: 300px;
+  transition: all 0.5s ease-out;
 }
 
 .login-button:hover {

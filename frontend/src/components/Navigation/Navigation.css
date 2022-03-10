@@ -62,6 +62,7 @@ button a {
     color: white;
     height: 30px;
     font-family: Ubuntu;
+    transition: all 0.5s ease-out;
 }
 
 .sign-up a{
@@ -92,6 +93,7 @@ h3 {
     color: white;
     height: 30px;
     font-family: Ubuntu;
+    transition: all 0.5s ease-out;
 }
 
 .logout:hover {
@@ -106,6 +108,7 @@ h3 {
   color: whitesmoke;
   height: 30px;
   width: 100px;
+  transition: all 0.5s ease-out;
 }
 .demo-button:hover {
   background-color: #382618;
@@ -117,6 +120,7 @@ h3 {
   color: white;
   height: 30px;
   font-family: Ubuntu;
+  transition: all 0.5s ease-out;
 }
 .log-in-button:hover {
   background-color: #d2c9b7;
@@ -131,6 +135,7 @@ NavLink {
   color: white;
   height: 30px;
   font-family: Ubuntu;
+  transition: all 0.5s ease-out;
 }
 .menu:hover {
   background-color: #d2c9b7;
@@ -143,6 +148,7 @@ NavLink {
   height: 30px;
   width: 130px;
   font-family: Ubuntu;
+  transition: all 0.5s ease-out;
 }
 .add-business:hover {
   background-color: #d2c9b7;

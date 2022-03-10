@@ -86,6 +86,7 @@ label {
   height: 50px;
   margin-top: 30px;
   width: 300px;
+  transition: all 0.5s ease-out;
 }
 
 .create-user:hover {
@@ -100,10 +101,12 @@ label {
   text-decoration: none;
   width: 300px;
   margin-left: 10px;
+  transition: all 0.5s ease-out;
 }
 
 .cancel Link {
   text-decoration: none;
+  transition: all 0.5s ease-out;
 }
 
 .cancel a:hover {
@@ -113,6 +116,7 @@ label {
 
 .cancel a {
   color: #382618;
+  transition: all 0.5s ease-out;
 }
 
 .sign-up-input {

@@ -140,6 +140,7 @@
   height: 30px;
   font-family: Ubuntu;
   margin-bottom: 10px;
+  transition: all 0.5s ease-out;
 }
 
 .more-info-button:hover {
@@ -154,6 +155,7 @@
   height: 30px;
   font-family: Ubuntu;
   margin-bottom: 10px;
+  transition: all 0.5s ease-out;
 }
 
 .edit-button:hover {
@@ -181,6 +183,7 @@
   height: 30px;
   font-family: Ubuntu;
   margin-bottom: 10px;
+  transition: all 0.5s ease-out;
 }
 
 .add-review:hover {
@@ -289,6 +292,7 @@
   height: 50px;
   font-family: Ubuntu;
   margin-bottom: 10px;
+  transition: all 0.5s ease-out;
 }
 
 .delete-review:hover {
