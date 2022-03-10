@@ -7,7 +7,7 @@ const Footer = () => {
 
     useEffect(() => {
         if (show) {
-            setDisplay('show');
+            setDisplay('show-info');
         } else {
             setDisplay('');
         }

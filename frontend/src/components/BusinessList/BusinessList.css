@@ -56,9 +56,11 @@
 .shop-list-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background-color: #f3ecdf;
+  padding: 100px 0px;
+  margin-bottom: 100px;
 }
 
 .selected-shop {
@@ -68,6 +70,7 @@
   align-items: center;
   justify-content: flex-start;
   margin-left: 40px;
+  margin-bottom: 200px;
 }
 
 .average-rating {
@@ -309,7 +312,8 @@
   align-items: center;
   margin-bottom: 20px;
   height: 20px;
-  position: absolute;
+  position: fixed;
+  z-index: 1;
   top: 18px;
   left: 50%;
 }
@@ -317,6 +321,10 @@
 .search input {
   height: 30px;
   width: 200px;
+  -webkit-box-shadow:inset 0 0 5px #d2c9b7;
+  -moz-box-shadow:inset 0 0 5px #d2c9b7;
+       box-shadow:inset 0 0 5px #d2c9b7;
+  background: transparent;
 }
 
 .search img {
@@ -338,21 +346,25 @@
 
 .show {
   display: flex;
+  background-color: whitesmoke;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   position: absolute;
-  top: 57.7px;
+  top: 58px;
   width: 160px;
-  height: 400px;
+  height: 100px;
+  padding: 40px;
   overflow-y:scroll;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  padding: 10px;
 }
 
 .search-result {
   cursor: pointer;
+  width: 100%;
 }
 
 .show h6 {

@@ -8,9 +8,11 @@
     height: 75px;
     border-bottom: 1px solid #d2c9b7;
     width: 100vw;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
     padding: 0;
+    background-color: whitesmoke;
   }
 
 .nav-container {

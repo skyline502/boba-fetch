@@ -58,7 +58,6 @@ const BusinessList = () => {
 
   useEffect(() => {
     let results = list.filter(shop => shop.name.toLowerCase().includes(term.toLowerCase()));
-    console.log('search results.....', results)
     if (results) {
       setResult(results)
     }
@@ -194,7 +193,7 @@ const BusinessList = () => {
       <div className="search">
         <input
         type='text'
-        placeholder='search'
+        placeholder='  ...search'
         value={term}
         name="search"
         onChange={e => setTerm(e.target.value)}
@@ -205,7 +204,7 @@ const BusinessList = () => {
         className={`search-results ${resultBox}`}
         onMouseLeave={() => setResultBox('hide')}
         >
-          <p style={{fontSize: 12, fontWeight:'lighter'}}>search results...</p>
+          <p style={{fontSize: 12, fontWeight:'lighter', marginTop: 0}}>search results...</p>
           {result && (
             result.map(result => (
               <h6

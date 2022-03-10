@@ -24,22 +24,22 @@
 }
 
 
-.show {
+.show-info {
     display: flex;
     background-color: whitesmoke;
     width: 200px;
     height: 100px;
-    padding: 10px;
+    padding: 20px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-.show > a {
+.show-info > a {
     text-decoration: none;
     width: 100%;
     padding:10px 10px;
 }
 
-.show > a:hover {
+.show-info > a:hover {
     background-color: #382618;
     color: white;
 }

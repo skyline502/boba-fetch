@@ -11,6 +11,11 @@ body {
      height: 100%;
      box-sizing: border-box;
      overflow-x: hidden;
+     overflow-y: scroll;
+ }
+
+body::-webkit-scrollbar {
+    display: none;
  }
 
  html {
