@@ -71,6 +71,39 @@ module.exports = {
       businessImg: 'http://happylemonwest.com/wp-content/uploads/2020/09/cropped-HL-New-Logo-black-png.png',
       description: 'Happy Lemon has been providing tasty tea for over fifteen years.'
     },
+    {
+      ownerId: 2,
+      name: 'Sharetea',
+      address: '1728 Hostetter Rd STE 30',
+      city: 'San Jose',
+      state: 'CA',
+      zipCode: '95131',
+      phone: '4088371920',
+      businessImg: 'https://wp.dailybruin.com/images/2020/01/web.ae_.sharetea.review.JH_.jpg',
+      description: 'Established in 1992, Sharetea started off business with to-go black tea and pearl milk tea drinks in Taipei, Taiwan. Since then Sharetea has opened many branches and franchises in 16 countries such as United States, Canada, Southeast Asia, Australia, Dubai and over 300 stores.'
+    },
+    {
+      ownerId: 2,
+      name: 'Sharetea',
+      address: '568 El Camino Real Ste A',
+      city: 'Sunnyvale',
+      state: 'CA',
+      zipCode: '94087',
+      phone: '6692465050',
+      businessImg: 'https://wp.dailybruin.com/images/2020/01/web.ae_.sharetea.review.JH_.jpg',
+      description: 'Established in 1992, Sharetea started off business with to-go black tea and pearl milk tea drinks in Taipei, Taiwan. Since then Sharetea has opened many branches and franchises in 16 countries such as United States, Canada, Southeast Asia, Australia, Dubai and over 300 stores.'
+    },
+    {
+      ownerId: 3,
+      name: 'Sharetea',
+      address: 'Westfield Valley Fair',
+      city: 'San Jose',
+      state: 'CA',
+      zipCode: '95128',
+      phone: '4087851992',
+      businessImg: 'https://wp.dailybruin.com/images/2020/01/web.ae_.sharetea.review.JH_.jpg',
+      description: 'Established in 1992, Sharetea started off business with to-go black tea and pearl milk tea drinks in Taipei, Taiwan. Since then Sharetea has opened many branches and franchises in 16 countries such as United States, Canada, Southeast Asia, Australia, Dubai and over 300 stores.'
+    },
    ], {});
   },
 

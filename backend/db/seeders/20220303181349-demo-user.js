@@ -14,7 +14,7 @@ module.exports = {
         email: 'user1@user.io',
         username: 'Johnny',
         hashedPassword: bcrypt.hashSync('password1234'),
-        profileImg: ''
+        profileImg: 'https://avatars.githubusercontent.com/u/93230132?v=4'
       },
       {
         email: 'user2@user.io',
