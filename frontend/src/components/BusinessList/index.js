@@ -17,7 +17,10 @@ const BusinessList = () => {
   const [selectedId, setSelectedId] = useState('');
   const [rating, setRating] = useState(1);
   const [review, setReview] = useState('');
-  const [message, setMessage] = useState('Welcome to Boba Fetch!');
+  const [term, setTerm] = useState('');
+  const [search, setSearch] = useState(false);
+  const [result, setResult] = useState([]);
+  const [resultBox, setResultBox] = useState('hide');
   const [averageRating, setAverageRating] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
   const shop = list.find(shop => shop.id === selectedId);
@@ -52,6 +55,25 @@ const BusinessList = () => {
   useEffect(() => {
     setSelectedShop(shop);
   }, [selectedId])
+
+  useEffect(() => {
+    let results = list.filter(shop => shop.name.toLowerCase().includes(term.toLowerCase()));
+    console.log('search results.....', results)
+    if (results) {
+      setResult(results)
+    }
+  }, [search, term])
+
+  useEffect(() => {
+    if (search) {
+      setResultBox('show');
+    } else {
+      setResultBox('hide');
+    }
+  }, [term, search])
+
+  //test search
+  console.log('searching for....', term)
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -172,12 +194,35 @@ const BusinessList = () => {
   return (
     <>
       <div className="search">
-        <input type='text'></input>
+        <input
+        type='text'
+        placeholder='search'
+        value={term}
+        onChange={e => setTerm(e.target.value)}
+        onMouseEnter={() => setResultBox('show')}
+        ></input>
         <img
           src='/images/search.png'
           className="search-img"
-          onClick={() => alert('Sorry, search has not been implemented yet')}
+          onClick={() => setSearch(!search)}
         ></img>
+        <div
+        className={`search-results ${resultBox}`}
+        onMouseLeave={() => setResultBox('hide')}
+        >
+          {result && (
+            result.map(result => (
+              <h6
+              key={result.id}
+              className='search-result'
+              onClick={() =>
+                {
+                  setSelectedId(result.id)
+                  setTerm('');
+                }}>{result.name}</h6>
+            ))
+          )}
+          </div>
       </div>
       <div className='shop-list-container'>
         {selected}
