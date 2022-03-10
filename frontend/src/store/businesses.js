@@ -73,7 +73,6 @@ export const addBusiness = (shop) => async dispatch => {
 
   if (response.ok) {
     const data = await response.json();
-    console.log('shop data: ', data)
     dispatch(addShop(data.shop))
     return response;
   }

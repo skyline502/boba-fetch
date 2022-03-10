@@ -40,13 +40,12 @@ const EditBusiness = ({list}) => {
     const ownerId = sessionUser.id;
     const business = { ownerId, name, address, city, state, zipCode, phone, description, businessImg };
 
-    console.log('new business:', business);
     setValidationErrors([]);
 
     let shop = await dispatch(editBusiness(id, business))
       .catch(async res => {
         const data = await res.json();
-        console.log('data;;;;;;', data)
+
         if (data && data.errors) {
           setValidationErrors(data.errors);
         }
@@ -56,7 +55,6 @@ const EditBusiness = ({list}) => {
     if (shop.id) {
       dispatch(getBusinesses());
       history.push('/businesses');
-      console.log('does this run?');
     }
 
 

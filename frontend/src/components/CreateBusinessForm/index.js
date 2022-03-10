@@ -36,7 +36,7 @@ const CreateBusiness = () => {
     const ownerId = sessionUser.id;
     const business = { ownerId, name, address, city, state, zipCode, phone, description, businessImg };
 
-    console.log('new business:', business);
+
     setValidationErrors([]);
 
     let shop = await dispatch(addBusiness(business))
@@ -47,11 +47,10 @@ const CreateBusiness = () => {
         }
       });
 
-    console.log('does this get created', shop)
+
 
     if (shop) {
       history.push('/businesses');
-      console.log('does this run?');
     }
 
 

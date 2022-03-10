@@ -49,10 +49,8 @@ export const addReview = (businessId, review) => async dispatch => {
     body: JSON.stringify(review)
   });
 
-  console.log('create reviewssssss', response);
   if (response.ok) {
     const data = await response.json();
-    console.log('new review:', data);
     dispatch(createReview(data));
     return data;
   }

@@ -33,7 +33,6 @@ const BusinessList = () => {
       })
       let avg = sum / shopReviews.length;
       setAverageRating(avg);
-      console.log('average rating for store:', selectedId, averageRating)
     }
   }, [selectedId, reviews, dispatch])
 

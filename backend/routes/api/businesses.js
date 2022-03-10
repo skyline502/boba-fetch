@@ -47,7 +47,6 @@ const validateBusiness = [
 router.get('/', asyncHandler(async (req, res) => {
     res.cookie('XSRF-TOKEN', req.csrfToken());
     const businesses = await Business.findAll();
-    console.log(businesses);
     return res.json(businesses);
 }));
 
@@ -58,7 +57,6 @@ router.post('/', validateBusiness, asyncHandler(async (req, res) => {
         name, address, city, state, zipCode, phone, description, ownerId, businessImg
     });
 
-    console.log('does it reach here:', business);
     return res.json({ business });
 }));
 
@@ -94,7 +92,6 @@ router.put('/:id(\\d+)/edit', validateBusiness, asyncHandler(async (req, res) =>
     const shop = await Business.findByPk(req.params.id);
     const { name, address, city, state, zipCode, phone, description, ownerId, businessImg } = req.body;
     const data = await shop.update({ name, address, city, state, zipCode, phone, description, ownerId, businessImg });
-    console.log('update response', data);
     return res.json(data);
 }));
 
