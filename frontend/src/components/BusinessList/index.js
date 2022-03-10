@@ -214,6 +214,7 @@ const BusinessList = () => {
                 {
                   setSelectedId(result.id)
                   setTerm('');
+                  setResultBox('hide');
                 }}>{result.name}: {result.address}</h6>
             ))
           )}
