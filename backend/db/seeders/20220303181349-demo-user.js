@@ -21,7 +21,13 @@ module.exports = {
         username: 'Skyline2011',
         hashedPassword: bcrypt.hashSync('password1234'),
         profileImg: ''
-      }
+      },
+      {
+        email: 'mary@gmail.com',
+        username: 'Mary',
+        hashedPassword: bcrypt.hashSync('password'),
+        profileImg: ''
+      },
     ], {});
   },
 

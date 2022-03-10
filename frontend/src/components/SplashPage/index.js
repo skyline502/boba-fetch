@@ -15,7 +15,7 @@ const SplashPage = () => {
         </div>
         <img src="/images/baby-yoda-eggs.gif" />
         <div className="splash-header">
-          <h4>Welcome to the site: {sessionUser.username}</h4>
+          <h4>Welcome to the site {sessionUser.username}!</h4>
           <p>UserId: {sessionUser.id}</p>
         </div>
       </div>

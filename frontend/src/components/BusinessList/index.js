@@ -150,7 +150,7 @@ const BusinessList = () => {
                 </div>
                 <div className='review-content'>
                   <img src={`/images/${review.rating}.png`}></img>
-                  <h6>Posted on {review.createdAt.split('-').slice(0, 2).join(' ')}</h6>
+                  <h6>Posted on {review.createdAt.split('T').join(' ').split('Z')}</h6>
                   <p>{review.review}</p>
                 </div>
               </div>

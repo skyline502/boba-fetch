@@ -104,6 +104,39 @@ module.exports = {
       businessImg: 'https://wp.dailybruin.com/images/2020/01/web.ae_.sharetea.review.JH_.jpg',
       description: 'Established in 1992, Sharetea started off business with to-go black tea and pearl milk tea drinks in Taipei, Taiwan. Since then Sharetea has opened many branches and franchises in 16 countries such as United States, Canada, Southeast Asia, Australia, Dubai and over 300 stores.'
     },
+    {
+      ownerId: 3,
+      name: 'Ume Tea',
+      address: '272 Barber Ct',
+      city: 'Milpitas',
+      state: 'CA',
+      zipCode: '95035',
+      phone: '4086493371',
+      businessImg: 'http://www.umeteaca.com/themes/default/public/asset/images/logo.svg',
+      description: `'it's all about U & ME'`
+    },
+    {
+      ownerId: 3,
+      name: 'Ume Tea',
+      address: '10887 N Wolfe Rd',
+      city: 'Cupertino',
+      state: 'CA',
+      zipCode: '95014',
+      phone: '4086387457',
+      businessImg: 'http://www.umeteaca.com/themes/default/public/asset/images/logo.svg',
+      description: `'it's all about U & ME'`
+    },
+    {
+      ownerId: 4,
+      name: 'White Rabbit',
+      address: '1351 Jacklin Rd',
+      city: 'Milpitas',
+      state: 'CA',
+      zipCode: '95035',
+      phone: '4081112222',
+      businessImg: 'https://s3-media0.fl.yelpcdn.com/bphoto/z0izRPN9xKwzHATn73yoCg/348s.jpg',
+      description: `Art and Tea, what more do you need...`
+    },
    ], {});
   },
 
