@@ -58,6 +58,7 @@ const SignUpForm = () => {
             placeholder="username"
             value={username}
             onChange={e => setUsername(e.target.value)}
+            className="sign-up-input"
             required
           />
           <input
@@ -66,6 +67,7 @@ const SignUpForm = () => {
             placeholder='email'
             value={email}
             onChange={e => setEmail(e.target.value)}
+            className="sign-up-input"
             required
           />
           <input
@@ -74,6 +76,7 @@ const SignUpForm = () => {
             placeholder='password'
             value={password}
             onChange={e => setPassword(e.target.value)}
+            className="sign-up-input"
             required
           />
           <input
@@ -82,6 +85,7 @@ const SignUpForm = () => {
             placeholder='confirm password'
             value={confirmPassword}
             onChange={e => setConfirmPassword(e.target.value)}
+            className="sign-up-input"
             required
           />
           <input
@@ -90,6 +94,7 @@ const SignUpForm = () => {
           placeholder='Profile url'
           value={profileImg}
           onChange={e => setProfileImg(e.target.value)}
+          className="sign-up-input"
           />
           <button type="submit" className="create-user">Create User</button>
           <div className='cancel'>
