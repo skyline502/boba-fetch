@@ -393,6 +393,9 @@
 .show h6:hover {
   background-color: white;
   transition: all 0.5s ease-out;
+  font-weight: bolder;
+  font-size: 13px;
+  width: auto;
 }
 
 .show::-webkit-scrollbar {

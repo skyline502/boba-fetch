@@ -90,10 +90,10 @@ export const deleteBusiness = (businessId) => async dispatch => {
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(deleteShop(businessId));
+    dispatch(deleteShop(data));
+    console.log('data....', data)
     return data;
   }
-
   return response;
 }
 
@@ -141,7 +141,7 @@ const businessReducer = (state = initialState, action) => {
     }
     case DELETE_SHOP: {
       newState = {...state};
-      delete newState[action.businessId];
+      delete newState.businesses[action.businessId];
       return newState;
     }
     case EDIT_SHOP: {
