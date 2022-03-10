@@ -164,6 +164,7 @@ const BusinessList = () => {
       <div className='selected-shop'>
         <div className='shop-header'>
           <h1>Welcome to Boba Fetch!</h1>
+          <h6>Click on a store to see its information!</h6>
         </div>
       </div>
     )
