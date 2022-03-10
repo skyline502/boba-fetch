@@ -331,11 +331,12 @@ textarea {
   justify-content: center;
   position: absolute;
   top: 57.7px;
-  width: 200px;
+  width: 160px;
   height: 400px;
   overflow-y:scroll;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+  padding: 10px;
 }
 
 .search-result {

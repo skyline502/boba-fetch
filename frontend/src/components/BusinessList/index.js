@@ -196,19 +196,16 @@ const BusinessList = () => {
         type='text'
         placeholder='search'
         value={term}
+        name="search"
         onChange={e => setTerm(e.target.value)}
         onMouseEnter={() => setResultBox('show')}
         onClick={() => setTerm('')}
         ></input>
-        <img
-          src='/images/search.png'
-          className="search-img"
-          onClick={() => setSearch(!search)}
-        ></img>
         <div
         className={`search-results ${resultBox}`}
         onMouseLeave={() => setResultBox('hide')}
         >
+          <p style={{fontSize: 12, fontWeight:'lighter'}}>search results...</p>
           {result && (
             result.map(result => (
               <h6
@@ -218,7 +215,7 @@ const BusinessList = () => {
                 {
                   setSelectedId(result.id)
                   setTerm('');
-                }}>{result.name}</h6>
+                }}>{result.name}: {result.address}</h6>
             ))
           )}
           </div>
