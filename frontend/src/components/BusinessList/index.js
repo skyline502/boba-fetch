@@ -113,7 +113,7 @@ const BusinessList = () => {
                       ))}
                       <form className='review-form' onSubmit={onSubmit}>
                         <label htmlFor='rating'>How many stars?</label>
-                        <img src='/images/0.png'></img>
+                        <img style={{margin: 5}} src={`/images/${rating}.png`}></img>
                         <select
                           value={rating}
                           onChange={e => setRating(e.target.value)}
