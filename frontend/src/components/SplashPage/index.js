@@ -9,17 +9,17 @@ const SplashPage = () => {
   if (sessionUser) {
     return (
       <div className="splash-container">
-      <div className='splash-body'>
-        <div className='splash-page-header'>
-          <h1>Welcome to Boba Fetch!</h1>
-        </div>
-        <img src="/images/baby-yoda-eggs.gif" />
-        <div className="splash-header">
-          <h4>Welcome to the site {sessionUser.username}!</h4>
-          <p>UserId: {sessionUser.id}</p>
+        <div className='splash-body'>
+          <div className='splash-page-header'>
+            <h1>Welcome to Boba Fetch!</h1>
+          </div>
+          <img src="/images/baby-yoda-eggs.gif" />
+          <div className="splash-header">
+            <h4>Welcome to the site {sessionUser.username}!</h4>
+            <p>UserId: {sessionUser.id}</p>
+          </div>
         </div>
       </div>
-    </div>
     )
   }
   return (
@@ -41,7 +41,6 @@ const SplashPage = () => {
           </div>
           <Link to='/signup'><button className="splash-sign-up">Sign up now for free!</button></Link>
         </div>
-          <p>REACT REDUX NODEJS EXPRESS POSTGRES SEQUELIZE</p>
       </div>
     </div>
   )

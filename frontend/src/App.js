@@ -7,6 +7,7 @@ import BusinessList from './components/BusinessList';
 import CreateBusiness from './components/CreateBusinessForm';
 import EditBusiness from './components/EditBusinessForm';
 import Message from './components/Message';
+import Footer from './components/footer';
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from './store/session';
 import * as businessActions from './store/businesses';
@@ -48,6 +49,7 @@ function App() {
           <EditBusiness list={shops}/>
         </Route>
       </Switch>
+      <Footer />
     </div>
   );
 }
