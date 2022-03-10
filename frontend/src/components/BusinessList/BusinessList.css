@@ -330,10 +330,12 @@ textarea {
   align-items: flex-start;
   justify-content: center;
   position: absolute;
-  top: 34px;
+  top: 57.7px;
   width: 200px;
   height: 400px;
   overflow-y:scroll;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .search-result {
@@ -341,7 +343,14 @@ textarea {
 }
 
 .show h6 {
-  margin-bottom: 0;
+  margin:0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px;
+}
+
+.show h6:hover {
+  background-color: white;
 }
 
 .show::-webkit-scrollbar {

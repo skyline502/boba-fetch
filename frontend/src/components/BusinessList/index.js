@@ -65,10 +65,8 @@ const BusinessList = () => {
   }, [search, term])
 
   useEffect(() => {
-    if (search) {
+    if (!resultBox) {
       setResultBox('show');
-    } else {
-      setResultBox('hide');
     }
   }, [term, search])
 
@@ -200,6 +198,7 @@ const BusinessList = () => {
         value={term}
         onChange={e => setTerm(e.target.value)}
         onMouseEnter={() => setResultBox('show')}
+        onClick={() => setTerm('')}
         ></input>
         <img
           src='/images/search.png'
