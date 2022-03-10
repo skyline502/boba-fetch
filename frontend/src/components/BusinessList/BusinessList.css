@@ -290,3 +290,32 @@ textarea {
   align-self: center;
   margin-left: 10px;
 }
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  left: 50%;
+}
+
+.search input {
+  height: 30px;
+  width: 200px;
+}
+
+.search img {
+  background-color: #382618;
+  height: 30px;
+  border-radius: 5px;
+  margin-top: 18px;
+}
+
+.search img:hover {
+  background-color: #d2c9b7;
+  color:#382618;
+  cursor: pointer;
+}

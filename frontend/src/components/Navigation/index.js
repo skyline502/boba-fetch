@@ -46,14 +46,6 @@ const Navigation = () => {
                         <button className="add-business">Add a Business</button>
                     </NavLink> : <></>}
                 </div>
-                <div className="search">
-                    <input type='text'></input>
-                    <img
-                    src='/images/search.png'
-                    className="search-img"
-                    onClick={() => alert('Sorry, search has not been implemented yet')}
-                    ></img>
-                </div>
                 <div className="session-box">
                     {sessionLinks}
                 </div>

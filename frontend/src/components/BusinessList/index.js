@@ -112,7 +112,7 @@ const BusinessList = () => {
                       ))}
                       <form className='review-form' onSubmit={onSubmit}>
                         <label htmlFor='rating'>How many stars?</label>
-                        <img style={{margin: 5}} src={`/images/${rating}.png`}></img>
+                        <img style={{ margin: 5 }} src={`/images/${rating}.png`}></img>
                         <select
                           value={rating}
                           onChange={e => setRating(e.target.value)}
@@ -149,8 +149,8 @@ const BusinessList = () => {
                 </div>
                 <div className='review-content'>
                   <img src={`/images/${review.rating}.png`}></img>
-                  <h6>Posted on {review.createdAt.split('T').join(' ').slice(0,10)}</h6>
-                  <p style={{fontWeight: 'lighter', fontSize: 12}}>{review.review}</p>
+                  <h6>Posted on {review.createdAt.split('T').join(' ').slice(0, 10)}</h6>
+                  <p style={{ fontWeight: 'lighter', fontSize: 12 }}>{review.review}</p>
                 </div>
               </div>
             )) : <h4 className='no-reviews'>no reviews yet!</h4>}
@@ -171,6 +171,14 @@ const BusinessList = () => {
 
   return (
     <>
+      <div className="search">
+        <input type='text'></input>
+        <img
+          src='/images/search.png'
+          className="search-img"
+          onClick={() => alert('Sorry, search has not been implemented yet')}
+        ></img>
+      </div>
       <div className='shop-list-container'>
         {selected}
         <div className='shop-list'>
