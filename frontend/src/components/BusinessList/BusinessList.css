@@ -208,7 +208,7 @@
   align-items: center;
   justify-content: center;
   background-color: whitesmoke;
-  width: 98%;
+  width: 100%;
   height: auto;
   border-radius: 15px;
 }
@@ -218,7 +218,7 @@
   justify-content: flex-start;
   align-items: center;
   background-color: whitesmoke;
-  width: 98%;
+  width: 100%;
   border-radius: 15px;
   margin: 20px 0px;
 }
@@ -239,7 +239,13 @@
 }
 
 .review-content {
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .review-form-container {
@@ -284,5 +290,3 @@ textarea {
   align-self: center;
   margin-left: 10px;
 }
-
-

@@ -149,8 +149,8 @@ const BusinessList = () => {
                 </div>
                 <div className='review-content'>
                   <img src={`/images/${review.rating}.png`}></img>
-                  <h6>Posted on {review.createdAt.split('T').join(' ').split('Z')}</h6>
-                  <p>{review.review}</p>
+                  <h6>Posted on {review.createdAt.split('T').join(' ').slice(0,10)}</h6>
+                  <p style={{fontWeight: 'lighter', fontSize: 12}}>{review.review}</p>
                 </div>
               </div>
             )) : <h4 className='no-reviews'>no reviews yet!</h4>}
