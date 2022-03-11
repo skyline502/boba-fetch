@@ -243,7 +243,7 @@ const BusinessList = () => {
               </div>
               <div className='shop-info'>
                 <h2 style={{ marginBottom: 10 }}>{shop.name}</h2>
-                {getAvg(shop.id) ? <img src={`/images/${Math.floor(getAvg(shop.id))}.png`}/> : <p style={{ color: 'red' }}>No Reviews yet!</p>}
+                {getAvg(shop.id) ? <img src={`/images/${Math.ceil(getAvg(shop.id))}.png`}/> : <p style={{ color: 'red' }}>No Reviews yet!</p>}
                 <h6 style={{ marginTop: 10 }}>{shop.address}</h6>
                 <h6>{shop.city}, {shop.state} {shop.zipCode}</h6>
                 <h6>Phone: ({shop.phone.split('').slice(0, 3)}) {shop.phone.split('').slice(3, 6)}-{shop.phone.split('').slice(6)}</h6>
