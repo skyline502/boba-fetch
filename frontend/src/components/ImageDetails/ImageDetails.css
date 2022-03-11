@@ -1,0 +1,9 @@
+.image-detail-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: whitesmoke;
+  border-radius: 15px;
+}

@@ -30,8 +30,6 @@ const BusinessList = () => {
   const AllReviews = reviews.reviews;
   const AllImages = images.images;
 
-  console.log('images....', AllImages);
-
   const shopReviews = AllReviews.filter(review => review.businessId === selectedId);
   const shopImages = AllImages.filter(image => image.businessId === selectedId);
 
@@ -89,7 +87,6 @@ const BusinessList = () => {
   }, [term, search])
 
   //test search
-  console.log('searching for....', term)
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -123,7 +120,7 @@ const BusinessList = () => {
         </div>
         <div className="selected-shop-info">
           <h1 style={{margin: 10}}>{selectedShop.name}</h1>
-          <ImagesModal images={shopImages} />
+          <ImagesModal businessId={selectedId} images={shopImages} />
           {sessionUser && selectedShop.ownerId === sessionUser.id ?
             <div className='delete-edit-buttons'>
               <Link to={`/businesses/${selectedShop.id}/edit`}><button onClick={() => dispatch(getBusinesses())} className="edit-button">Edit</button></Link>

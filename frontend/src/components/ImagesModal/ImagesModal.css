@@ -15,7 +15,8 @@
   width: 120px;
   padding: 10px;
   background-color: whitesmoke;
-  border-radius: 8px;;
+  border-radius: 8px;
+  margin: 5px;
 }
 
 .str-img-box img {

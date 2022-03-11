@@ -4,7 +4,7 @@ const GET_LIST = '/api/businesses/GET_LIST';
 const ADD_SHOP = '/api/businesses/ADD_SHOP';
 const DELETE_SHOP = '/api/business/DELETE_SHOP';
 const EDIT_SHOP = '/api/business/EDIT_SHOP';
-const GET_ONE = '/api/business/GET_ONE';
+
 
 
 //actions
@@ -38,14 +38,6 @@ const editShop = (shop) => {
     shop
   }
 }
-
-const getOne = (id) => {
-  return {
-    type: GET_ONE,
-    id
-  }
-}
-
 
 
 //thunks
@@ -91,7 +83,7 @@ export const deleteBusiness = (businessId) => async dispatch => {
   if (response.ok) {
     const data = await response.json();
     dispatch(deleteShop(data));
-    console.log('data....', data)
+
     return data;
   }
   return response;

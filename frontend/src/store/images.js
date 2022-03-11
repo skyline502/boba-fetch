@@ -1,7 +1,7 @@
 import { csrfFetch } from "./csrf";
 
-const GET_IMAGES = '/api/images';
-const ADD_IMAGE = '/api/images';
+const GET_IMAGES = '/api/images/GET_IMAGES';
+const ADD_IMAGE = '/api/images/ADD_IMAGES';
 
 //actions
 const getImages = (images) => {
@@ -28,7 +28,6 @@ export const getAllImages = () => async dispatch => {
   const response = await csrfFetch('/api/images/');
   if (response.ok) {
     const images = await response.json();
-    console.log('any images....', images)
     dispatch(getImages(images));
     return images;
   }
@@ -37,7 +36,7 @@ export const getAllImages = () => async dispatch => {
 
 //addImage
 export const addOneImage = (image) => async dispatch => {
-  const response = await csrfFetch(`/api/images`, {
+  const response = await csrfFetch(`/api/images/`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(image)
@@ -45,6 +44,7 @@ export const addOneImage = (image) => async dispatch => {
 
   if (response.ok) {
     const image = await response.json();
+    console.log('does this run....', image)
     dispatch(addImage(image));
     return image;
   }
@@ -64,6 +64,7 @@ const imageReducer = (state = initialState, action) => {
   switch(action.type) {
     case GET_IMAGES: {
       const allImages = {};
+      console.log('images....get', action.images)
       action.images.forEach(image => {
         allImages[image.id] = image;
       });
@@ -72,6 +73,12 @@ const imageReducer = (state = initialState, action) => {
         ...state,
         images: sortList(action.images)
       };
+    }
+    case ADD_IMAGE: {
+      console.log('adding new image...', action.image)
+      newState = {...state};
+      newState[action.image.id] = action.image;
+      return newState;
     }
     default:
       return state;

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Modal from "../../context/Modal";
 
 
-const ImagesModal = ({images}) => {
+const ImagesModal = ({images, businessId}) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -15,7 +15,7 @@ const ImagesModal = ({images}) => {
       >Images</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <ImagesContainer images={images} />
+          <ImagesContainer images={images} businessId={businessId} />
         </Modal>
       )}
     </>
