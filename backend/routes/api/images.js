@@ -42,6 +42,16 @@ router.post('/', validateImage, asyncHandler(async (req, res) => {
   return res.json(image);
 }));
 
+//delete image
+router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
+  const image = await Image.findByPk(req.params.id);
+
+  if (image) {
+    await Image.destroy({ where: { id: image.id } });
+    return res.json();
+  }
+}))
+
 
 
 

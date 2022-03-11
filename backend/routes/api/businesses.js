@@ -5,7 +5,7 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { Business, Review } = require('../../db/models');
+const { Business, Review, Image } = require('../../db/models');
 
 const router = express.Router();
 
@@ -69,6 +69,18 @@ router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
             businessId: req.params.id
         }
     });
+
+    const images = await Image.findAll({
+        where: {
+            businessId: req.params.id
+        }
+    });
+
+    if (images) {
+        images.forEach(async image => {
+            Image.destroy({ where: {id: image.id }});
+        });
+    }
 
     if (reviews) {
         reviews.forEach(async review => {

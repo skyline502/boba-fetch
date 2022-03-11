@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const GET_IMAGES = '/api/images/GET_IMAGES';
 const ADD_IMAGE = '/api/images/ADD_IMAGES';
+const DELETE_IMAGE = '/api/images/:id';
 
 //actions
 const getImages = (images) => {
@@ -18,6 +19,12 @@ const addImage = (image) => {
   }
 };
 
+const deleteImage = (imageId) => {
+  return {
+    type: DELETE_IMAGE,
+    imageId
+  }
+};
 
 
 
@@ -47,6 +54,20 @@ export const addOneImage = (image) => async dispatch => {
     console.log('does this run....', image)
     dispatch(addImage(image));
     return image;
+  }
+  return response;
+}
+
+//deleteImage
+export const deleteImg = (imageId) => async dispatch => {
+  const response = await csrfFetch(`/api/images/${imageId}`, {
+    method:'DELETE',
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(deleteImage(imageId));
+    return data;
   }
   return response;
 }
