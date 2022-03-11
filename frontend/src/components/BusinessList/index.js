@@ -28,6 +28,16 @@ const BusinessList = () => {
 
   const shopReviews = AllReviews.filter(review => review.businessId === selectedId);
 
+  const getAvg = (id) => {
+    let sum = 0;
+    let reviews = AllReviews.filter(review => review.businessId === id);
+    if (reviews) {
+      reviews.forEach(review => sum += review.rating);
+      return sum / reviews.length;
+    }
+    return 'No reviews yet';
+  }
+
   useEffect(() => {
     if (shopReviews) {
       let sum = 0;
@@ -232,8 +242,9 @@ const BusinessList = () => {
                 />
               </div>
               <div className='shop-info'>
-                <h2>{shop.name}</h2>
-                <h6>{shop.address}</h6>
+                <h2 style={{ marginBottom: 10 }}>{shop.name}</h2>
+                {getAvg(shop.id) ? <img src={`/images/${Math.floor(getAvg(shop.id))}.png`}/> : <p style={{ color: 'red' }}>No Reviews yet!</p>}
+                <h6 style={{ marginTop: 10 }}>{shop.address}</h6>
                 <h6>{shop.city}, {shop.state} {shop.zipCode}</h6>
                 <h6>Phone: ({shop.phone.split('').slice(0, 3)}) {shop.phone.split('').slice(3, 6)}-{shop.phone.split('').slice(6)}</h6>
                 <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
