@@ -18,9 +18,6 @@ module.exports = (sequelize, DataTypes) => {
     imgUrl: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isUrl: true
-      }
     },
     businessId: {
       type: DataTypes.INTEGER,

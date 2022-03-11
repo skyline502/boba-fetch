@@ -18,30 +18,28 @@ const validateImage = [
     .withMessage('Please provide a description between 10 and 50 characters long.'),
   check('imgUrl')
     .exists({ checkFalsy: true })
-    .isURL()
     .withMessage('Please provide a valid image URL.'),
     handleValidationErrors
 ]
 
 //ROUTES
-//get all reviews
+//get all images
 router.get('/', asyncHandler(async (req, res) => {
   res.cookie('XSRF-TOKEN', req.csrfToken());
   const images = await Image.findAll({
     include: [User, Business],
   });
 
-  console.log('....images', images)
+  console.log('route get all images', images)
   return res.json(images);
 }));
 
 //add an image
 router.post('/', validateImage, asyncHandler(async (req, res) => {
   const { title, description, imgUrl, businessId, userId } = req.body;
+  const image = await Image.create({ title, description, imgUrl, businessId, userId });
 
-  const newImage = await Image.create({ title, description, imgUrl, businessId, userId });
-
-  return res.json({ newImage });
+  return res.json(image);
 }));
 
 
