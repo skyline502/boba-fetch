@@ -25,7 +25,7 @@ const validateImage = [
 
 //ROUTES
 router.get('/', asyncHandler(async (req, res) => {
-  res.cookie('XSRF-TOKEN', req.csrfToke());
+  res.cookie('XSRF-TOKEN', req.csrfToken());
   const images = await Image.findAll({
     include: [User, Business],
   });

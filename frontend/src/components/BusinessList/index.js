@@ -6,12 +6,14 @@ import { Link } from 'react-router-dom';
 import DeleteBusinessModal from '../DeleteBusiness';
 import DeleteReviewModal from '../DeleteReview';
 import ImagesModal from '../ImagesModal';
+import { getAllImages } from '../../store/images';
 import { getStoreReviews, addReview, deleteAReview } from '../../store/reviews';
 
 const BusinessList = () => {
   const sessionUser = useSelector(state => state.session.user);
   const shops = useSelector(state => state.businesses);
   const reviews = useSelector(state => state.reviews);
+  const images = useSelector(state => state.images);
   const dispatch = useDispatch();
   const list = shops.businesses;
   const [selectedShop, setSelectedShop] = useState(shops.businesses[0]);
@@ -26,8 +28,13 @@ const BusinessList = () => {
   const [validationErrors, setValidationErrors] = useState([]);
   const shop = list.find(shop => shop.id === selectedId);
   const AllReviews = reviews.reviews;
+  const AllImages = images.images;
+
+  console.log('images....', AllImages);
 
   const shopReviews = AllReviews.filter(review => review.businessId === selectedId);
+  const shopImages = AllImages.filter(image => image.businessId === selectedId);
+
 
   const getAvg = (id) => {
     let sum = 0;
@@ -53,6 +60,7 @@ const BusinessList = () => {
 
   useEffect(() => {
     dispatch(getBusinesses());
+    dispatch(getAllImages());
   }, [dispatch]);
 
   useEffect(() => {
@@ -115,7 +123,7 @@ const BusinessList = () => {
         </div>
         <div className="selected-shop-info">
           <h1 style={{margin: 10}}>{selectedShop.name}</h1>
-          <ImagesModal />
+          <ImagesModal images={shopImages} />
           {sessionUser && selectedShop.ownerId === sessionUser.id ?
             <div className='delete-edit-buttons'>
               <Link to={`/businesses/${selectedShop.id}/edit`}><button onClick={() => dispatch(getBusinesses())} className="edit-button">Edit</button></Link>
