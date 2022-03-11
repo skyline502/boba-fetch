@@ -48,41 +48,44 @@ const ImagesContainer = ({ businessId }) => {
   }
 
   return (
-    <div className="images-container">
-      <h1>Images</h1>
-      {sessionUser && (
-        <>
-          <div className="add-img-form">
-            <button onClick={() => setShowForm(!showForm)}>Add Image</button>
-            <form onSubmit={onSubmit} className={`add-image-form ${form}`}>
-              <input
-                type='text'
-                placeholder='title'
-                value={title}
-                onChange={e => setTitle(e.target.value)}
-              />
-              <input
-                type='text'
-                placeholder='description'
-                value={description}
-                onChange={e => setDescription(e.target.value)}
-              />
-              <input
-                type='url'
-                placeholder='enter image url'
-                value={imgUrl}
-                onChange={e => setImgUrl(e.target.value)}
-              />
-              <button type="submit" onClick={() => setForm('hide-form')}>submit</button>
-            </form>
+    <div className="images-modal-box">
+      <div className='add-img-box'>
+        {sessionUser && (
+          <>
+            <div className="add-img-form">
+              <button className='add-image-btn' onClick={() => setShowForm(!showForm)}>Add Image</button>
+              <form onSubmit={onSubmit} className={`add-image-form ${form}`}>
+                <input
+                  type='text'
+                  placeholder='title'
+                  value={title}
+                  onChange={e => setTitle(e.target.value)}
+                />
+                <input
+                  type='text'
+                  placeholder='description'
+                  value={description}
+                  onChange={e => setDescription(e.target.value)}
+                />
+                <input
+                  type='url'
+                  placeholder='enter image url'
+                  value={imgUrl}
+                  onChange={e => setImgUrl(e.target.value)}
+                />
+                <button type="submit" onClick={() => setForm('hide-form')}>submit</button>
+              </form>
+            </div>
+          </>
+        )}
+      </div>
+      <div className='images-container'>
+        {images.map(image => (
+          <div className="str-img-box" key={image.id}>
+            <Image image={image} />
           </div>
-        </>
-      )}
-      {images.map(image => (
-        <div className="str-img-box" key={image.id}>
-          <Image image={image} />
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   )
 }

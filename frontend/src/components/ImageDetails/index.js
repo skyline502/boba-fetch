@@ -9,7 +9,7 @@ const Image = ({image}) => {
   return (
     <>
       <img src={image.imgUrl}
-        className="images-button"
+        className="image-button"
         onClick={() => setShowModal(true)}
       ></img>
       {showModal && (

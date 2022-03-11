@@ -7,3 +7,28 @@
   background-color: whitesmoke;
   border-radius: 15px;
 }
+
+.image-button {
+  transition: all 0.5s ease-out;
+  border-radius: 5px;
+  color: white;
+}
+
+.image-button:hover {
+  transform: scale(1.5);
+}
+
+.images-button {
+  transition: all 0.5s ease-out;
+  background-color: #382618;
+  color: white;
+  height: 30px;
+  font-family: Ubuntu;
+  margin-bottom: 10px;
+}
+
+.images-button:hover {
+  background-color: #d2c9b7;
+  cursor: pointer;
+  color:#382618
+}
