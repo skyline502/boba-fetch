@@ -1,25 +1,24 @@
-import './ImagesModal.css';
-import ImagesContainer from './ImagesModal';
+import './ImageDetails.css'
+import ImageDetails from './ImageDetails';
 import { useState } from 'react';
 import Modal from "../../context/Modal";
 
-
-const ImagesModal = ({images}) => {
+const Image = ({image}) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button
+      <img src={image.imgUrl}
         className="images-button"
         onClick={() => setShowModal(true)}
-      >Images</button>
+      ></img>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <ImagesContainer images={images} />
+          <ImageDetails image={image} />
         </Modal>
       )}
     </>
   );
 };
 
-export default ImagesModal;
+export default Image;

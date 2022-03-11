@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Image from '../ImageDetails';
 
 const ImagesContainer = ({images}) => {
   const [form, setForm] = useState('hide-form');
@@ -29,7 +30,7 @@ const ImagesContainer = ({images}) => {
       </div>
       {images.map(image => (
         <div className="str-img-box" key={image.id}>
-          <img src={image.imgUrl} />
+          <Image image={image} />
         </div>
       ))}
     </div>

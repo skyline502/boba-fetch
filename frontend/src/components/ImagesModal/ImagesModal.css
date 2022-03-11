@@ -8,10 +8,11 @@
 
 .str-img-box {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100px;
-  width: 100px;
+  height: 120px;
+  width: 120px;
   padding: 10px;
   background-color: whitesmoke;
   border-radius: 8px;;
