@@ -13,6 +13,7 @@
   height: 30px;
   font-family: Ubuntu;
   margin-bottom: 10px;
+  transition: all 0.5s ease-out;
 }
 
 .delete-review-button:hover {

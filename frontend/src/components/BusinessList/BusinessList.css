@@ -244,6 +244,8 @@
   border-right: 1px solid #d2c9b7;
   padding: 20px;
   height: 100%;
+  width: 300px;
+  box-sizing: border-box;
 }
 
 .review-profile-img {
