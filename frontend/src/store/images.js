@@ -25,7 +25,7 @@ export const getAllImages = () => async dispatch => {
 }
 
 const sortList = (images) => {
-  return reviews.sort((imageA, imageB) => {
+  return images.sort((imageA, imageB) => {
     return imageA.businessId - imageB.businessId;
   }).map((image) => image);
 };

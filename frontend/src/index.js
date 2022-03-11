@@ -11,6 +11,7 @@ import App from './App';
 import * as sessionActions from './store/session';
 import * as businessActions from './store/businesses';
 import * as reviewActions from './store/reviews';
+import * as imageActions from './store/images';
 
 
 import configureStore from './store';
@@ -25,6 +26,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.sessionActions = sessionActions;
   window.businessActions = businessActions;
   window.reviewActions = reviewActions;
+  window.imageActions = imageActions;
 }
 
 
