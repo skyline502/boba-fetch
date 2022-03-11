@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import DeleteBusinessModal from '../DeleteBusiness';
 import DeleteReviewModal from '../DeleteReview';
+import ImagesModal from '../ImagesModal';
 import { getStoreReviews, addReview, deleteAReview } from '../../store/reviews';
 
 const BusinessList = () => {
@@ -113,7 +114,8 @@ const BusinessList = () => {
           <img className='selected-shop-img' src={selectedShop.businessImg ? selectedShop.businessImg : '/images/logo.png'} />
         </div>
         <div className="selected-shop-info">
-          <h1>{selectedShop.name}</h1>
+          <h1 style={{margin: 10}}>{selectedShop.name}</h1>
+          <ImagesModal />
           {sessionUser && selectedShop.ownerId === sessionUser.id ?
             <div className='delete-edit-buttons'>
               <Link to={`/businesses/${selectedShop.id}/edit`}><button onClick={() => dispatch(getBusinesses())} className="edit-button">Edit</button></Link>
