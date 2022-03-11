@@ -24,6 +24,7 @@ const validateImage = [
 ]
 
 //ROUTES
+//get all reviews
 router.get('/', asyncHandler(async (req, res) => {
   res.cookie('XSRF-TOKEN', req.csrfToken());
   const images = await Image.findAll({
@@ -32,6 +33,15 @@ router.get('/', asyncHandler(async (req, res) => {
 
   console.log('....images', images)
   return res.json(images);
+}));
+
+//add an image
+router.post('/', validateImage, asyncHandler(async (req, res) => {
+  const { title, description, imgUrl, businessId, userId } = req.body;
+
+  const newImage = await Image.create({ title, description, imgUrl, businessId, userId });
+
+  return res.json({ newImage });
 }));
 
 
