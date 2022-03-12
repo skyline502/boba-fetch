@@ -13,6 +13,7 @@
     left: 0;
     padding: 0;
     background-color: whitesmoke;
+    z-index: 1;
   }
 
 .nav-container {

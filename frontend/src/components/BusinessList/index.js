@@ -115,6 +115,7 @@ const BusinessList = () => {
       dispatch(getStoreReviews());
       setRating(1);
       setReview('');
+      setShowReviewForm(!showReviewForm)
     }
 
   }
@@ -149,7 +150,9 @@ const BusinessList = () => {
             <div className='reviews-box-header'>
               <div className='review-header'>
                 <h1>Reviews</h1>
-                <button onClick={() => setShowReviewForm(!showReviewForm)} className='reveal-form'>Add Review</button>
+                {sessionUser && (
+                  <button onClick={() => setShowReviewForm(!showReviewForm)} className='reveal-form'>Add A Review</button>
+                )}
               </div>
               <div>
                 {sessionUser && selectedShop.ownerId !== sessionUser.id && (
@@ -179,7 +182,7 @@ const BusinessList = () => {
                           name="review"
                           placeholder='Please Leave a Review'
                         ></textarea>
-                        <button type="submit" className='add-review'>Add Review</button>
+                        <button type="submit" className='add-review'>Submit</button>
                       </form>
                     </div>
                   </div>
