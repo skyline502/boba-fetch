@@ -193,6 +193,21 @@
   color: #382618;
 }
 
+.reveal-form {
+  background-color: #382618;
+  color: white;
+  height: 30px;
+  font-family: Ubuntu;
+  margin-bottom: 10px;
+  transition: all 0.5s ease-out;
+}
+
+.reveal-form:hover {
+  background-color: #d2c9b7;
+  cursor: pointer;
+  color: #382618;
+}
+
 .reviews-box {
   display: block;
   background-color: white;
@@ -271,18 +286,25 @@
 }
 
 .review-form {
+  display: none;
+}
+
+.shown {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: whitesmoke;
+  width: 90%;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 .reviews-box-header textarea {
   border: 1mm ridge whitesmoke;
   border-radius: 15px;
   margin-bottom: 2px;
-  width:300%;
+  width:200%;
   height: 100px;
 }
 
