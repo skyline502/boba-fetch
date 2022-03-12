@@ -86,14 +86,16 @@ const BusinessList = () => {
     let results = list.filter(shop => shop.name.toLowerCase().includes(term.toLowerCase()));
     if (results) {
       setResult(results)
+    } else {
+      setResultBox('hide');
     }
-  }, [search, term])
+  }, [term])
 
-  useEffect(() => {
-    if (!resultBox) {
-      setResultBox('show');
-    }
-  }, [term, search])
+  // useEffect(() => {
+  //   if (!resultBox) {
+  //     setResultBox('show');
+  //   }
+  // }, [term, search])
 
   //test search
 
@@ -229,14 +231,14 @@ const BusinessList = () => {
           value={term}
           name="search"
           onChange={e => setTerm(e.target.value)}
-          onMouseEnter={() => setResultBox('show')}
+          onKeyDown={() => setResultBox('show')}
           onClick={() => setTerm('')}
         ></input>
         <div
           className={`search-results ${resultBox}`}
           onMouseLeave={() => setResultBox('hide')}
         >
-          <p style={{ fontSize: 12, fontWeight: 'lighter', marginTop: 0 }}>search results...</p>
+          <p style={{ fontSize: 12, fontWeight: 'lighter', marginTop: 0 }}>results:</p>
           {result && (
             result.map(result => (
               <h6

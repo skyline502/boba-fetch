@@ -378,7 +378,7 @@
   position: absolute;
   top: 58px;
   width: 160px;
-  height: 100px;
+  height: auto;
   padding: 40px;
   overflow-y:scroll;
   border-bottom-left-radius: 15px;
