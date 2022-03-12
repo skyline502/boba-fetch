@@ -1,5 +1,13 @@
 # Boba Fetch!
 Boba Fetch! is a Yelp clone, but for mainly Milk Tea shops.  It is a place for Milk Tea shops to advertise their business.  Users of the app will be able to sign up and then add a business to the app.  User's will also be able to post reviews for shops that they do not own.
+
+# Index
+- [Feature List](https://github.com/skyline502/boba-fetch/wiki/Boba-Fetch!-Feature-List)
+- [Database Schema](https://github.com/skyline502/boba-fetch/wiki/Database-Schema)
+
+# Technologies Used
+-NodeJs, React, Redux, express, postgres, html, css, vscode
+
 # Installation
 1. First navigate to the backend folder by typing:
 ```js
@@ -32,6 +40,7 @@ npx dotenv sequelize db:migrate
 npx dotenv sequelize db:seed:all
 ```
 3. Frontend Installation
+- cd into your frontend directory
 - npm install
 4. Start up your backend server with:
 ```js
@@ -50,3 +59,4 @@ npm start
 - Your browser should open up the app at localhost:3000
 6. Using the site
 - You can log in with demo user or create a new user
+- You can browse the businesses by clicking on the businesses button
