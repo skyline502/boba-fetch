@@ -152,7 +152,7 @@ const BusinessList = () => {
             <div className='reviews-box-header'>
               <div className='review-header'>
                 <h1>Reviews</h1>
-                {sessionUser && (
+                {sessionUser && selectedShop.ownerId !== sessionUser.id && (
                   <button onClick={() => setShowReviewForm(!showReviewForm)} className='reveal-form'>Add A Review</button>
                 )}
               </div>
