@@ -18,6 +18,7 @@ const validateImage = [
     .withMessage('Please provide a description between 10 and 50 characters long.'),
   check('imgUrl')
     .exists({ checkFalsy: true })
+    .isURL()
     .withMessage('Please provide a valid image URL.'),
     handleValidationErrors
 ]
@@ -46,9 +47,10 @@ router.post('/', validateImage, asyncHandler(async (req, res) => {
 router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
   const image = await Image.findByPk(req.params.id);
 
+  console.log('image.id', image.id)
   if (image) {
     await Image.destroy({ where: { id: image.id } });
-    return res.json();
+    return res.json(image.id);
   }
 }))
 

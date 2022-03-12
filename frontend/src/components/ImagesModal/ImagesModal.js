@@ -10,6 +10,7 @@ const ImagesContainer = ({ businessId }) => {
   const [imgUrl, setImgUrl] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [validationErrors, setValidationErrors] = useState([]);
 
   const sessionUser = useSelector(state => state.session.user)
   const currentImages = useSelector(state => state.images);
@@ -37,11 +38,21 @@ const ImagesContainer = ({ businessId }) => {
 
     const image = { businessId, userId: sessionUser.id, title, description, imgUrl };
 
-    let newImage = await dispatch(addOneImage(image));
+    let newImage = await dispatch(addOneImage(image))
+      .catch(async res => {
+        const data = await res.json();
+        if (data && data.errors) {
+          setValidationErrors(data.errors);
+        }
+      });
 
     if (newImage) {
-      setForm('hide-form');
+      setValidationErrors([]);
       dispatch(getAllImages());
+      setTitle('');
+      setDescription('');
+      setImgUrl('');
+      setForm('hide-form');
       return;
     }
 
@@ -49,6 +60,9 @@ const ImagesContainer = ({ businessId }) => {
 
   return (
     <div className="images-modal-box">
+      {validationErrors.map(error => (
+        <li style={{color: 'red', fontWeight: 'bolder'}} key={error}>{error}</li>
+      ))}
       <div className='add-img-box'>
         {sessionUser && (
           <>
@@ -73,7 +87,7 @@ const ImagesContainer = ({ businessId }) => {
                   value={imgUrl}
                   onChange={e => setImgUrl(e.target.value)}
                 />
-                <button type="submit" onClick={() => setForm('hide-form')}>submit</button>
+                <button type="submit">submit</button>
               </form>
             </div>
           </>

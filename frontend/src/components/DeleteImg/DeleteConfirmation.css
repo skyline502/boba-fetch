@@ -1,0 +1,21 @@
+.delete-img-button {
+  transition: all 0.5s ease-out;
+  background-color: #382618;
+  color: white;
+  height: 30px;
+  font-family: Ubuntu;
+  margin-bottom: 10px;
+}
+
+.delete-img-button:hover {
+  background-color: #d2c9b7;
+  cursor: pointer;
+  color:#382618
+}
+
+.delete-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

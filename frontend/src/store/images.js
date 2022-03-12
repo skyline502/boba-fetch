@@ -60,14 +60,15 @@ export const addOneImage = (image) => async dispatch => {
 
 //deleteImage
 export const deleteImg = (imageId) => async dispatch => {
+  console.log('imageId....', imageId)
   const response = await csrfFetch(`/api/images/${imageId}`, {
     method:'DELETE',
   });
 
   if (response.ok) {
-    const data = await response.json();
+    const imageId = await response.json();
     dispatch(deleteImage(imageId));
-    return data;
+    return imageId;
   }
   return response;
 }
@@ -99,6 +100,11 @@ const imageReducer = (state = initialState, action) => {
       console.log('adding new image...', action.image)
       newState = {...state};
       newState[action.image.id] = action.image;
+      return newState;
+    }
+    case DELETE_IMAGE: {
+      newState = {...state};
+      delete newState[action.imageId];
       return newState;
     }
     default:
