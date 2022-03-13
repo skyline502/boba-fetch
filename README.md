@@ -6,7 +6,7 @@ Boba Fetch! is a Yelp clone, but for mainly Milk Tea shops.  It is a place for M
 - [Database Schema](https://github.com/skyline502/boba-fetch/wiki/Database-Schema)
 
 # Technologies Used
--NodeJs, React, Redux, express, postgres, html, css, vscode
+![image](/frontend/public/images/technologies.png)
 
 # Installation
 1. First navigate to the backend folder by typing:
