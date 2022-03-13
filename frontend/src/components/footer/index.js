@@ -28,7 +28,7 @@ const Footer = () => {
                     <img src='https://avatars.githubusercontent.com/u/93230132?v=4' />
                 </div>
             </div>
-            <div className='technologies'>TECHNOLOGIES USED:<img style={{marginLeft: 10,height: 28}} src='/images/technologies.png' /><img style={{height: 25}} src='/images/sequelize.png'></img></div>
+            <div className='technologies'>CREATED WITH:<img style={{marginLeft: 10,height: 28}} src='/images/technologies.png' /><img style={{height: 25}} src='/images/sequelize.png'></img></div>
             <div></div>
         </div>
     )
