@@ -20,7 +20,11 @@ const Footer = () => {
                     ABOUT
                 </div>
                 <div className={`popup-box ${display}`} onMouseLeave={() => setShow(!show)}>
-                    <a href='https://github.com/skyline502'>GitHub: Skyline502</a>
+                    <div className='links-profile'>
+                        <a href='https://github.com/skyline502'>GitHub: Skyline502</a>
+                        <a href='https://the-best-stuck-overflow.herokuapp.com/'>My Group Project</a>
+                        <a href='https://www.linkedin.com/in/johnny-san-a98b43218'>LinkedIn: Johnny San</a>
+                    </div>
                     <img src='https://avatars.githubusercontent.com/u/93230132?v=4' />
                 </div>
             </div>
