@@ -28,13 +28,8 @@ const Footer = () => {
                     <img src='https://avatars.githubusercontent.com/u/93230132?v=4' />
                 </div>
             </div>
-            <div>REACT</div>
-            <div>REDUX</div>
-            <div>NODEJS</div>
-            <div>EXPRESS</div>
-            <div>POSTGRES</div>
-            <div>SEQUELIZE</div>
-            <div>CSS</div>
+            <div className='technologies'>TECHNOLOGIES USED:<img style={{marginLeft: 10,height: 28}} src='/images/technologies.png' /><img style={{height: 25}} src='/images/sequelize.png'></img></div>
+            <div></div>
         </div>
     )
 }

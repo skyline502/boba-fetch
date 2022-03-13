@@ -1,6 +1,6 @@
 .footer-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     height: 30px;
     width: 100vw;
@@ -60,6 +60,15 @@
     transition: all 0.5s ease-out;
 }
 
+.technologies {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right:0;
+    margin-right: 40px;
+}
+
 .show-info > a {
     text-decoration: none;
     width: 100%;
@@ -70,6 +79,13 @@
 .show-info > a:hover {
     background-color: #382618;
     color: white;
+}
+
+
+.pop-up-button {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
 }
 
 .pop-up-button:hover {
