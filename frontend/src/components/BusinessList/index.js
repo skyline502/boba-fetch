@@ -24,6 +24,8 @@ const BusinessList = () => {
   const [search, setSearch] = useState(false);
   const [result, setResult] = useState([]);
   const [resultBox, setResultBox] = useState('hide');
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [reviewState, setReviewState] = useState('hidden');
   const [averageRating, setAverageRating] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
   const shop = list.find(shop => shop.id === selectedId);
@@ -33,6 +35,13 @@ const BusinessList = () => {
   const shopReviews = AllReviews.filter(review => review.businessId === selectedId);
   const shopImages = AllImages.filter(image => image.businessId === selectedId);
 
+  useEffect(() => {
+    if (showReviewForm) {
+      setReviewState('shown');
+    } else {
+      setReviewState('hidden');
+    }
+  }, [showReviewForm])
 
   const getAvg = (id) => {
     let sum = 0;
@@ -77,14 +86,16 @@ const BusinessList = () => {
     let results = list.filter(shop => shop.name.toLowerCase().includes(term.toLowerCase()));
     if (results) {
       setResult(results)
+    } else {
+      setResultBox('hide');
     }
-  }, [search, term])
+  }, [term])
 
-  useEffect(() => {
-    if (!resultBox) {
-      setResultBox('show');
-    }
-  }, [term, search])
+  // useEffect(() => {
+  //   if (!resultBox) {
+  //     setResultBox('show');
+  //   }
+  // }, [term, search])
 
   //test search
 
@@ -106,6 +117,7 @@ const BusinessList = () => {
       dispatch(getStoreReviews());
       setRating(1);
       setReview('');
+      setShowReviewForm(!showReviewForm)
     }
 
   }
@@ -119,7 +131,7 @@ const BusinessList = () => {
           <img className='selected-shop-img' src={selectedShop.businessImg ? selectedShop.businessImg : '/images/logo.png'} />
         </div>
         <div className="selected-shop-info">
-          <h1 style={{margin: 10}}>{selectedShop.name}</h1>
+          <h1 style={{ margin: 10 }}>{selectedShop.name}</h1>
           <ImagesModal businessId={selectedId} images={shopImages} />
           {sessionUser && selectedShop.ownerId === sessionUser.id ?
             <div className='delete-edit-buttons'>
@@ -138,7 +150,12 @@ const BusinessList = () => {
           </div>
           <div className='reviews-box'>
             <div className='reviews-box-header'>
-              <h1>Reviews</h1>
+              <div className='review-header'>
+                <h1>Reviews</h1>
+                {sessionUser && selectedShop.ownerId !== sessionUser.id && (
+                  <button onClick={() => setShowReviewForm(!showReviewForm)} className='reveal-form'>Add A Review</button>
+                )}
+              </div>
               <div>
                 {sessionUser && selectedShop.ownerId !== sessionUser.id && (
                   <div className='add-review-container'>
@@ -146,7 +163,7 @@ const BusinessList = () => {
                       {validationErrors.map(error => (
                         <li key={error} style={{ color: 'red', fontWeight: 'bolder' }}>{error}</li>
                       ))}
-                      <form className='review-form' onSubmit={onSubmit}>
+                      <form className={`review-form ${reviewState}`} onSubmit={onSubmit}>
                         <label htmlFor='rating'>How many stars?</label>
                         <img style={{ margin: 5 }} src={`/images/${rating}.png`}></img>
                         <select
@@ -167,7 +184,7 @@ const BusinessList = () => {
                           name="review"
                           placeholder='Please Leave a Review'
                         ></textarea>
-                        <button type="submit" className='add-review'>Add Review</button>
+                        <button type="submit" className='add-review'>Submit</button>
                       </form>
                     </div>
                   </div>
@@ -209,33 +226,32 @@ const BusinessList = () => {
     <>
       <div className="search">
         <input
-        type='text'
-        placeholder='  ...search'
-        value={term}
-        name="search"
-        onChange={e => setTerm(e.target.value)}
-        onMouseEnter={() => setResultBox('show')}
-        onClick={() => setTerm('')}
+          type='text'
+          placeholder='  ...search'
+          value={term}
+          name="search"
+          onChange={e => setTerm(e.target.value)}
+          onKeyDown={() => setResultBox('show')}
+          onClick={() => setTerm('')}
         ></input>
         <div
-        className={`search-results ${resultBox}`}
-        onMouseLeave={() => setResultBox('hide')}
+          className={`search-results ${resultBox}`}
+          onMouseLeave={() => setResultBox('hide')}
         >
-          <p style={{fontSize: 12, fontWeight:'lighter', marginTop: 0}}>search results...</p>
+          <p style={{ fontSize: 12, fontWeight: 'lighter', marginTop: 0 }}>results:</p>
           {result && (
             result.map(result => (
               <h6
-              key={result.id}
-              className='search-result'
-              onClick={() =>
-                {
+                key={result.id}
+                className='search-result'
+                onClick={() => {
                   setSelectedId(result.id)
                   setTerm('');
                   setResultBox('hide');
                 }}>{result.name}: {result.address}</h6>
             ))
           )}
-          </div>
+        </div>
       </div>
       <div className='shop-list-container'>
         {selected}
@@ -250,7 +266,7 @@ const BusinessList = () => {
               </div>
               <div className='shop-info'>
                 <h2 style={{ marginBottom: 10 }}>{shop.name}</h2>
-                {getAvg(shop.id) ? <img src={`/images/${Math.ceil(getAvg(shop.id))}.png`}/> : <p style={{ color: 'red' }}>No Reviews yet!</p>}
+                {getAvg(shop.id) ? <img src={`/images/${Math.ceil(getAvg(shop.id))}.png`} /> : <p style={{ color: 'red' }}>No Reviews yet!</p>}
                 <h6 style={{ marginTop: 10 }}>{shop.address}</h6>
                 <h6>{shop.city}, {shop.state} {shop.zipCode}</h6>
                 <h6>Phone: ({shop.phone.split('').slice(0, 3)}) {shop.phone.split('').slice(3, 6)}-{shop.phone.split('').slice(6)}</h6>

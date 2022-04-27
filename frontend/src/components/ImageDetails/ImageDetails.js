@@ -11,7 +11,7 @@ const ImageDetails = ({image}) => {
       <h1>{image.title}</h1>
       <img style={{maxHeight: 300 }}  src={image.imgUrl} />
       <p>{image.description}</p>
-      {image.userId === sessionUser.id && (
+      {sessionUser && image.userId === sessionUser.id && (
         <DeleteImageModal imageId={image.id} />
       )}
     </div>

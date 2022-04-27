@@ -64,6 +64,7 @@ const ImagesContainer = ({ businessId }) => {
         <li style={{color: 'red', fontWeight: 'bolder'}} key={error}>{error}</li>
       ))}
       <div className='add-img-box'>
+        <h2 style={{ color: 'white' }} >Images</h2>
         {sessionUser && (
           <>
             <div className="add-img-form">

@@ -4,8 +4,6 @@ import { deleteImg, getAllImages } from '../../store/images';
 import { useHistory } from 'react-router-dom';
 
 const DeleteConfirmation = ({imageId}) => {
-
-  console.log(imageId, 'iamgeid....')
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -16,8 +14,6 @@ const DeleteConfirmation = ({imageId}) => {
   const onSubmit = async e => {
     e.preventDefault();
     let deleted = await dispatch(deleteImg(imageId));
-
-    console.log('is it delete...', deleted);
 
     if (deleted) {
       dispatch(getAllImages());

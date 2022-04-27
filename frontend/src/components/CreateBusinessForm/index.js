@@ -27,9 +27,6 @@ const CreateBusiness = () => {
   }, [dispatch])
 
 
-
-
-
   const onSubmit = async e => {
     e.preventDefault();
 

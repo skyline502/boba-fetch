@@ -18,8 +18,9 @@
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .images-container {

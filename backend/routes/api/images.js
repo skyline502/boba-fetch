@@ -31,7 +31,6 @@ router.get('/', asyncHandler(async (req, res) => {
     include: [User, Business],
   });
 
-  console.log('route get all images', images)
   return res.json(images);
 }));
 
@@ -47,7 +46,6 @@ router.post('/', validateImage, asyncHandler(async (req, res) => {
 router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
   const image = await Image.findByPk(req.params.id);
 
-  console.log('image.id', image.id)
   if (image) {
     await Image.destroy({ where: { id: image.id } });
     return res.json(image.id);

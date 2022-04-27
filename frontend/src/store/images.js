@@ -51,7 +51,6 @@ export const addOneImage = (image) => async dispatch => {
 
   if (response.ok) {
     const image = await response.json();
-    console.log('does this run....', image)
     dispatch(addImage(image));
     return image;
   }
@@ -60,7 +59,6 @@ export const addOneImage = (image) => async dispatch => {
 
 //deleteImage
 export const deleteImg = (imageId) => async dispatch => {
-  console.log('imageId....', imageId)
   const response = await csrfFetch(`/api/images/${imageId}`, {
     method:'DELETE',
   });
@@ -86,7 +84,6 @@ const imageReducer = (state = initialState, action) => {
   switch(action.type) {
     case GET_IMAGES: {
       const allImages = {};
-      console.log('images....get', action.images)
       action.images.forEach(image => {
         allImages[image.id] = image;
       });
@@ -97,7 +94,6 @@ const imageReducer = (state = initialState, action) => {
       };
     }
     case ADD_IMAGE: {
-      console.log('adding new image...', action.image)
       newState = {...state};
       newState[action.image.id] = action.image;
       return newState;
